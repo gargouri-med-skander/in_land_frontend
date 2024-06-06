@@ -4,14 +4,8 @@ import { CommonModule } from '@angular/common';
 import { BenefitsRoutingModule } from './benefits-routing.module';
 import { BenefitsComponent } from './benefits/benefits.component';
 
-
 @NgModule({
-  declarations: [
-    BenefitsComponent
-  ],
-  imports: [
-    CommonModule,
-    BenefitsRoutingModule
-  ]
+  declarations: [BenefitsComponent],
+  imports: [CommonModule, BenefitsRoutingModule],
 })
-export class BenefitsModule { }
+export class BenefitsModule {}

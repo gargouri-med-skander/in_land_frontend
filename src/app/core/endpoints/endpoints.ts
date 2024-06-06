@@ -1,2 +1,1 @@
-export const APP_ENDPOINTS = {
-};
+export const APP_ENDPOINTS = {};

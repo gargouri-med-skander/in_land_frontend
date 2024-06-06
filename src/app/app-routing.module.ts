@@ -16,16 +16,16 @@ const routes: Routes = [
       {
         path: APP_ROUTES.HOME,
         loadChildren: () =>
-          import(
-            './public/components/home/home.module'
-          ).then((m) => m.HomeModule),
+          import('./public/components/home/home.module').then(
+            m => m.HomeModule
+          ),
       },
       {
         path: APP_ROUTES.BENEFITS,
         loadChildren: () =>
-          import(
-            './public/components/benefits/benefits.module'
-          ).then((m) => m.BenefitsModule),
+          import('./public/components/benefits/benefits.module').then(
+            m => m.BenefitsModule
+          ),
       },
     ],
   },
@@ -33,6 +33,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
