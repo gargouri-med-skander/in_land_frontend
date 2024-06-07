@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="container-home d-flex justify-content-center flex-column">
+  <div class="overlay"></div>
+  <div class="row">
+    <div
+      class="col-md-6 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center flex-column"
+      [ngStyle]="screenWidth <= 768 ? { 'margin-top': '0px' } : {}"
+    >
+      <div>
+        <h1 class="first-title">MASTER YOUR MARKET,</h1>
+      </div>
+      <div class="second-title">
+        <h1>ACCELERATE YOUR GROWTH.</h1>
+      </div>
+      <div class="description">
+        <p>
+          We help businesses growing their sales pipeline, and confidently guide
+          them into new territories.
+        </p>
+      </div>
+      <div><button class="btn">DIVE INTO OUR SERVICES</button></div>
+    </div>
+    <div
+      class="col-md-6 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center"
+    >
+      <img class="support-img" src="assets/img/support.png" alt="" />
+    </div>
+  </div>
+</div>
