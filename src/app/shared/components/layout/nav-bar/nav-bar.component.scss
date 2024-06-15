@@ -8,10 +8,7 @@
 }
 
 .navbar-brand {
-  font-weight: 500;
-  color: pink;
-  font-size: 24px;
-  transition: 3s color;
+  height: 80px;
 }
 
 .navbar-toggler {
@@ -33,7 +30,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-  color: #73e0e7;
+  color: #87ceeb;
 }
 
 @media (min-width: 991px) {
@@ -45,7 +42,7 @@
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background-color: #73e0e7;
+    background-color: #87ceeb;
     visibility: hidden;
     transition: 0.3s ease-in-out;
   }
@@ -60,5 +57,15 @@
   .offcanvas-body {
     background-color: #fff;
     overflow-y: visible;
+  }
+  .nav-link {
+    color: #000;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    width: 130px;
+    height: 65px;
   }
 }
