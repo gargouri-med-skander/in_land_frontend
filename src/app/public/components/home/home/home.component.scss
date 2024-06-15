@@ -1,9 +1,9 @@
 .container-home {
-  height: calc(100vh - 77px);
+  height: calc(100vh - 100px);
   z-index: 1;
   position: relative;
   width: 100%;
-  background: linear-gradient(199.51deg, #4b7679 13.08%, #e82caf 111.58%);
+  background: linear-gradient(199.51deg, #194049 13.08%, #fe7773 111.58%);
   overflow-x: hidden;
 }
 .overlay {
@@ -17,8 +17,8 @@
   z-index: -1;
 }
 .support-img {
-  height: 100%;
   width: 100%;
+  height: auto;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -36,7 +36,7 @@
   color: #fff;
   width: 250px;
   height: 61px;
-  background-color: #4b7679;
+  background-color: #194049;
   border-radius: 5px;
   border: 2px solid #fff;
   transition:
@@ -50,57 +50,158 @@
 .btn:hover {
   transform: translateY(-5px);
   background-color: #fff;
-  color: #4b7679;
+  color: #194049;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-  border: 2px solid #4b7679;
+  border: 2px solid #194049;
 }
 
 .first-title {
+  color: #194049;
   padding-left: 20px;
   padding-right: 20px;
   font-weight: 700;
-  animation: color-switch-first-title 3s infinite;
+  animation:
+    fadeInRight 1s ease-out forwards,
+    color-switch-first-title 3s infinite;
 }
 .second-title {
+  color: #194049;
   padding-left: 20px;
   padding-right: 20px;
   font-weight: 700;
-  animation: color-switch-second-title 3s infinite;
+  animation:
+    fadeInleft 1s ease-out forwards,
+    color-switch-second-title 3s infinite;
 }
 
-@keyframes color-switch-first-title {
+/* @keyframes color-switch-first-title {
   0%,
   50% {
     color: #fff;
   }
   50%,
   100% {
-    color: #49757a;
+    color: #194049;
   }
 }
 
 @keyframes color-switch-second-title {
   0%,
   50% {
-    color: #49757a;
+    color: #194049;
   }
   50%,
   100% {
     color: #fff;
   }
-}
+} */
 
 .description {
-  color: #000;
-  font-size: 18px;
+  color: #ffffff;
+  font-size: 25px;
   font-weight: 500;
   font-style: normal;
   margin-top: 20px;
   padding-left: 40px;
   padding-right: 40px;
 }
+
+#line-1 {
+  overflow: hidden;
+  animation: typewriter 2s steps(80, end) forwards;
+}
+
+#line-2 {
+  overflow: hidden;
+  opacity: 0;
+  animation: typewriter 2s steps(80, end) forwards;
+  animation-delay: 2s;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0%;
+    opacity: 0;
+    white-space: nowrap;
+  }
+  to {
+    width: 100%;
+    white-space: nowrap;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInleft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeinzoom {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateZ(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+
+@keyframes fadeoutzoom {
+  from {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.5) translateZ(-50px);
+  }
+}
+
+.fadeinzoom {
+  animation: fadeinzoom 1s forwards;
+}
+
+.fadeoutzoom {
+  animation: fadeoutzoom 1s forwards;
+}
+
 @media (max-width: 768px) {
   .support-img {
     display: none;
+  }
+
+  #line-1 {
+    width: 100%;
+    animation: none;
+  }
+  #line-2 {
+    width: 100%;
+    animation: none;
+    opacity: 1;
+  }
+
+  .description {
+    font-size: 18px;
+    opacity: 0;
+    animation: fadeInRight 2s ease-out forwards;
+    animation-delay: 1s;
   }
 }
