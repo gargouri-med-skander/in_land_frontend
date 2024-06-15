@@ -1,8 +1,8 @@
-<div class="container-home d-flex justify-content-center flex-column">
+<div class="home-container d-flex justify-content-center flex-column">
   <div class="overlay"></div>
   <div class="row">
     <div
-      class="col-md-6 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center flex-column"
+      class="col-md-12 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center flex-column"
       [ngStyle]="screenWidth <= 768 ? { 'margin-top': '0px' } : {}"
     >
       <div>
@@ -13,17 +13,274 @@
         <p id="line-1">We help businesses growing their sales pipeline,</p>
         <p id="line-2">and confidently guide them into new territories.</p>
       </div>
-      <div pAnimateOnScroll enterClass="fadeinzoom" leaveClass="fadeoutzoom">
+      <div pAnimateOnScroll enterClass="fadeinzoom" leaveClass="">
         <button class="btn">DIVE INTO OUR SERVICES</button>
       </div>
     </div>
     <div
       pAnimateOnScroll
       enterClass="fadeinzoom"
-      leaveClass="fadeoutzoom"
-      class="col-md-6 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center"
+      leaveClass=""
+      class="col-md-12 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center"
     >
       <img class="support-img" src="assets/img/support.png" alt="" />
     </div>
+  </div>
+</div>
+<div class="container animation-container" (window:scroll)="onScroll($event)">
+  <div class="row" style="margin-top: 20px">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <img
+        class="part-logo-img"
+        src="assets/img/part-logo.png"
+        alt=""
+        [ngStyle]="screenWidth <= 768 ? { display: 'none' } : {}"
+      />
+    </div>
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <img
+        class="full-logo-img"
+        src="assets/img/full-logo.png"
+        alt=""
+        [ngStyle]="screenWidth <= 768 ? { display: 'none' } : {}"
+      />
+    </div>
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <img
+        pAnimateOnScroll
+        enterClass="fadeinzoom"
+        leaveClass="fadeoutzoom"
+        src="assets/img/logo.png"
+        alt=""
+        [ngStyle]="screenWidth > 768 ? { display: 'none' } : { width: 'auto' }"
+      />
+    </div>
+  </div>
+  <div class="row" style="margin-top: 110px">
+    <div
+      class="col-12 d-flex align-items-center justify-content-center flex-column"
+    >
+      <h1 class="under-logo-title">INCREASE YOUR PIPELINE GROWTH</h1>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 40px">
+    <div class="col-md-12 col-sm-12 col-lg-6">
+      <img
+        pAnimateOnScroll
+        enterClass="fadeinzoom"
+        leaveClass="fadeoutzoom"
+        class="profit-img"
+        src="assets/img/profit.png"
+        alt=""
+      />
+    </div>
+    <div class="col-md-12 col-sm-12 col-lg-6 d-flex flex-column">
+      <p class="profit-description">
+        <strong class="highlight-text"
+          >you looking to skyrocket your pipeline growth and venture into new
+          markets ?
+        </strong>
+        <span
+          class="text-content"
+          [innerHTML]="
+            'inland offers specialised services in demand, lead generation, and account-based marketing to help you achieve your goals. With our expertise, you can save valuable time, effort, and resources by eliminating the need for recruiting, training, and onboarding BDRs. Tap into our profound market knowledge and custom go-to-market strategies that resonate with your target audience, ensuring optimum results. Experience success across diverse markets with our proven strategies. Let inland take your business to new heights.'
+              | colorChanger: 'inland' : '#87ceeb'
+          "
+        >
+        </span>
+      </p>
+      <div
+        class="d-flex justify-content-center"
+        pAnimateOnScroll
+        enterClass="fadeinzoom"
+        leaveClass="fadeoutzoom"
+      >
+        <button class="btn">DISCOVER ADVANTAGE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="strategie-container">
+  <div class="container">
+    <div class="row">
+      <div
+        pAnimateOnScroll
+        enterClass="fadeinzoom"
+        leaveClass=""
+        class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center"
+        style="margin-top: 20px"
+      >
+        <h1 class="strategie-title">STRATEGIES FOR SALES GROWTH</h1>
+      </div>
+      <div
+        pAnimateOnScroll
+        enterClass="fadeInRight"
+        leaveClass="fadeOutRight"
+        class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center"
+      >
+        <p class="strategie-description">
+          <span
+            class="strategie-description"
+            [innerHTML]="
+              'inland generates a robust sales pipeline by employing a strategic, multi-channel approach. We tailor our outbound prospecting efforts through thorough research on accounts and buyer personas. Our comprehensive strategyies and proven tactics incorporate targeted email outreach, calling, and LinkedIn campaigns. By analyzing your target markets, we identify the channels that resonate with your audience, amplify your message, and drive business growth.'
+                | colorChanger: 'inland' : '#fe7773'
+            "
+          >
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px">
+    <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-around">
+      <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
+        <div class="col-1 d-flex align-items-center flex-column">
+          <div class="outer-circle">
+            <div class="inner-circle"></div>
+            <div class="vertical-line"></div>
+          </div>
+        </div>
+        <div
+          pAnimateOnScroll
+          enterClass="fadeInleftStrategie"
+          leaveClass=""
+          class="col d-flex flex-column"
+        >
+          <span class="title d-flex justify-content-start">IDENTIFY</span>
+          <span class="strategie-description"
+            >We define your target accounts by analyzing your ideal customer
+            profile, conduct market analysis to understand the dynamics and
+            opportunities, and develop detailed buyer personas to tailor our
+            messaging and engagement strategies. Our targeted approach aligns
+            outbound prospecting with your business goals for maximum
+            success.</span
+          >
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
+        <div class="col-1 d-flex align-items-center flex-column">
+          <div class="outer-circle">
+            <div class="inner-circle"></div>
+            <div class="vertical-line"></div>
+          </div>
+        </div>
+        <div
+          pAnimateOnScroll
+          enterClass="fadeInleftStrategie"
+          leaveClass=""
+          class="col d-flex flex-column"
+        >
+          <span class="title d-flex justify-content-start">DISCOVER</span>
+          <span class="strategie-description"
+            >In the discovery phase, we dive deep to understand potential
+            clients and markets. Our research lays the foundation for strategic
+            planning. Through contact account mapping, we highlight departments,
+            teams, and their connections.</span
+          >
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
+        <div class="col-1 d-flex align-items-center flex-column">
+          <div class="outer-circle">
+            <div class="inner-circle"></div>
+            <div class="vertical-line"></div>
+          </div>
+        </div>
+        <div
+          pAnimateOnScroll
+          enterClass="fadeInleftStrategie"
+          leaveClass=""
+          class="col d-flex flex-column"
+        >
+          <span class="title d-flex justify-content-start">QUALIFY</span>
+          <span class="strategie-description"
+            >inland focuses on the identification of buying centers within
+            organizations to see who makes the decisions. We also pay attention
+            to their pain points, challenges, and needs. By understanding these,
+            inland identifies the leads with the highest potential for
+            conversion along your sales piepline.</span
+          >
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 100px">
+      <div class="col-12 d-flex justify-content-around">
+        <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
+          <div class="col-1 d-flex align-items-center flex-column">
+            <div class="outer-circle">
+              <div class="inner-circle"></div>
+              <div class="vertical-line"></div>
+            </div>
+          </div>
+          <div
+            pAnimateOnScroll
+            enterClass="fadeInrightStrategie"
+            leaveClass=""
+            class="col d-flex flex-column"
+          >
+            <span class="title d-flex justify-content-start">ENGAGE</span>
+            <span class="strategie-description"
+              >Rather than relying on a single method, at inland we harness the
+              power of various platforms and communication methods, from emails
+              and phone calls to LinkedIn outreach. By diversifying our outreach
+              methods, we maximize opportunities and boost the chances of
+              successful engagement.</span
+            >
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
+          <div class="col-1 d-flex align-items-center flex-column">
+            <div class="outer-circle">
+              <div class="inner-circle"></div>
+              <div class="vertical-line"></div>
+            </div>
+          </div>
+          <div
+            pAnimateOnScroll
+            enterClass="fadeInrightStrategie"
+            leaveClass=""
+            class="col d-flex flex-column"
+          >
+            <span class="title d-flex justify-content-start">NURTURE</span>
+            <span class="strategie-description"
+              >inland emphasizes long-term relationship building with targeted
+              accounts and prospects. We stay engaged, adapting to their
+              changing needs through regular communication, sharing valuable
+              content, and timely follow-ups. This approach enhances our chances
+              of turning opportunities into fruitful collaborations.</span
+            >
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
+          <div class="col-1 d-flex align-items-center flex-column">
+            <div class="outer-circle">
+              <div class="inner-circle"></div>
+              <div class="vertical-line"></div>
+            </div>
+          </div>
+          <div
+            pAnimateOnScroll
+            enterClass="fadeInrightStrategie"
+            leaveClass=""
+            class="col d-flex flex-column"
+          >
+            <span class="title d-flex justify-content-start">REPORT</span>
+            <span class="strategie-description"
+              >inland offers regular performance reviews, tailored to your
+              team's requirements and needs. These comprehensive updates provide
+              insights into our activities, achievements, and areas of
+              improvement. Beyond just gauging performance, we also diligently
+              track the ROI.</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="why-choose-us-container">
+  <div class="why-choose-us-title">
+    Why Choose <img class="" src="assets/img/logo.png" /> ? tell me why tell me
+    why tell me why
   </div>
 </div>

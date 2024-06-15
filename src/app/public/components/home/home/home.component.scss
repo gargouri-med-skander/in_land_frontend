@@ -1,10 +1,11 @@
-.container-home {
-  height: calc(100vh - 100px);
+.home-container {
+  height: calc(100vh - 240px);
   z-index: 1;
   position: relative;
   width: 100%;
   background: linear-gradient(199.51deg, #194049 13.08%, #fe7773 111.58%);
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 .overlay {
   position: absolute;
@@ -19,7 +20,7 @@
 .support-img {
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease;
 }
 
 .support-img:hover {
@@ -28,7 +29,6 @@
 
 .btn {
   margin-top: 20px;
-  padding: 0;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -153,6 +153,28 @@
   }
 }
 
+@keyframes fadeOutRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+@keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+}
+
 @keyframes fadeinzoom {
   from {
     opacity: 0;
@@ -183,6 +205,181 @@
   animation: fadeoutzoom 1s forwards;
 }
 
+.fadeInRight {
+  animation: fadeInRight 1s forwards;
+}
+
+.fadeInLeft {
+  animation: fadeInLeft 1s forwards;
+}
+
+.fadeOutRight {
+  animation: fadeOutRight 1s forwards;
+}
+
+.fadeOutLeft {
+  animation: fadeOutLeft 1s forwards;
+}
+
+.animation-container {
+  height: 120vh;
+}
+
+.part-logo-img {
+  height: 200px;
+  width: auto;
+  transform: translateX(0px) rotate(225deg);
+  transition: transform 0.1s ease;
+  position: relative;
+}
+
+.full-logo-img {
+  opacity: 0;
+  position: absolute;
+  transform: translateX(0px);
+  transition:
+    transform 0.1s ease,
+    opacity 0.5s ease;
+}
+
+.under-logo-title {
+  color: #194049;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 700;
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    transform 1s ease-out,
+    opacity 1s ease-out;
+}
+
+.profit-img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.profit-img:hover {
+  transform: translateX(-15px);
+}
+
+.profit-description {
+  color: #000;
+  font-size: 25px;
+  font-weight: 400;
+  font-style: normal;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.highlight-text {
+  color: #fe7773;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.strategie-container {
+  background: linear-gradient(30.51deg, #194049 14.08%, #000000 100.58%);
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.strategie-title {
+  color: #fff;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: 700;
+  transform: scale(0.8);
+  transition:
+    transform 1s ease-out,
+    opacity 1s ease-out;
+}
+
+.strategie-description {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.outer-circle {
+  width: 25px;
+  height: 25px;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  background-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.inner-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.vertical-line {
+  width: 2px;
+  height: 185px;
+  background-color: #fff;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title {
+  color: #fe7773;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@keyframes fadeInleftStrategie {
+  from {
+    opacity: 0;
+    transform: translateX(-290px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInrightStrategie {
+  from {
+    opacity: 0;
+    transform: translateX(290px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInleftStrategie {
+  animation: fadeInleftStrategie 2s forwards;
+}
+.fadeInrightStrategie {
+  animation: fadeInrightStrategie 2s forwards;
+}
+
+.why-choose-us-container {
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.why-choose-us-title {
+  padding: 12vh 1vh 7vh 10vh;
+}
+
 @media (max-width: 768px) {
   .support-img {
     display: none;
@@ -203,5 +400,19 @@
     opacity: 0;
     animation: fadeInRight 2s ease-out forwards;
     animation-delay: 1s;
+  }
+}
+
+@media (max-width: 991px) {
+  .support-img {
+    margin-top: 20px;
+    height: auto;
+    width: 70%;
+  }
+  .home-container {
+    height: calc(100vh - 200px);
+  }
+  .part-logo-img {
+    left: 0.5rem;
   }
 }
