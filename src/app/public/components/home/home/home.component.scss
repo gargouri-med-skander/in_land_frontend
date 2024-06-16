@@ -1,5 +1,5 @@
 .home-container {
-  height: calc(100vh - 240px);
+  height: calc(100vh - 210px);
   z-index: 1;
   position: relative;
   width: 100%;
@@ -18,8 +18,8 @@
   z-index: -1;
 }
 .support-img {
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 75%;
   transition: transform 0.3s ease;
 }
 
@@ -221,10 +221,6 @@
   animation: fadeOutLeft 1s forwards;
 }
 
-.animation-container {
-  height: 120vh;
-}
-
 .part-logo-img {
   height: 200px;
   width: auto;
@@ -235,6 +231,7 @@
 
 .full-logo-img {
   opacity: 0;
+  top: 4rem;
   position: absolute;
   transform: translateX(0px);
   transition:
@@ -279,9 +276,10 @@
 
 .strategie-container {
   background: linear-gradient(30.51deg, #194049 14.08%, #000000 100.58%);
-  height: 90vh;
   width: 100%;
   overflow: hidden;
+  padding-bottom: 2rem;
+  margin-top: 30px;
 }
 
 .strategie-title {
