@@ -1,0 +1,68 @@
+.footer-container {
+  background: linear-gradient(145deg, #194049 2.08%, #ffd8d8 110.58%);
+}
+
+.navbar-brand {
+  height: 60%;
+  width: 80%;
+}
+
+.description {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.title {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.nav-link {
+  color: #000;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+@media (min-width: 991px) {
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+
+  .nav-link:hover::before {
+    width: 40%;
+    visibility: visible;
+  }
+}
+.copyright {
+  color: #000;
+  font-size: 17px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.contact {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+}
