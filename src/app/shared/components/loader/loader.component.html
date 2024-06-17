@@ -1,1 +1,8 @@
-<p>loader works!</p>
+<div id="invisible" *ngIf="loaderServ.getLoaderActive()">
+  <div class="loading-screen">
+    <div class="loading-animation">
+      <img src="./assets/img/part-logo.png" alt="" class="logo" />
+      <div class="loading-bar"></div>
+    </div>
+  </div>
+</div>

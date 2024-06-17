@@ -7,6 +7,7 @@ import { BaseLayoutComponent } from './public/components/base-layout/base-layout
 import { NavBarComponent } from './shared/components/layout/nav-bar/nav-bar.component';
 import { FooterComponent } from './shared/components/layout/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BaseLayoutComponent,
     NavBarComponent,
     FooterComponent,
+    LoaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

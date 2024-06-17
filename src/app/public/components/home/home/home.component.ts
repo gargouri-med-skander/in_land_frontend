@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { LoaderService } from 'src/app/shared/services/loader.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,13 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   screenWidth!: number;
   leftPercentage = 14.5;
+  constructor(private loader: LoaderService) {}
+
   ngOnInit(): void {
+    this.loader.setLoaderActive(true);
+    setTimeout(() => {
+      this.loader.setLoaderActive(false);
+    }, 1000);
     this.onResize(null);
     this.calculateLeftPercentage();
   }
