@@ -31,6 +31,54 @@ export class HomeComponent implements OnInit {
         name: 'partner4',
         image: 'partner4.png',
       },
+      {
+        name: 'partner1',
+        image: 'partner1.png',
+      },
+      {
+        name: 'partner2',
+        image: 'partner2.png',
+      },
+      {
+        name: 'partner3',
+        image: 'partner3.png',
+      },
+      {
+        name: 'partner4',
+        image: 'partner4.png',
+      },
+      {
+        name: 'partner1',
+        image: 'partner1.png',
+      },
+      {
+        name: 'partner2',
+        image: 'partner2.png',
+      },
+      {
+        name: 'partner3',
+        image: 'partner3.png',
+      },
+      {
+        name: 'partner4',
+        image: 'partner4.png',
+      },
+      {
+        name: 'partner1',
+        image: 'partner1.png',
+      },
+      {
+        name: 'partner2',
+        image: 'partner2.png',
+      },
+      {
+        name: 'partner3',
+        image: 'partner3.png',
+      },
+      {
+        name: 'partner4',
+        image: 'partner4.png',
+      },
     ];
     this.responsiveOptions = [
       {
