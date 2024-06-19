@@ -34,8 +34,13 @@
   color: #fff;
 }
 
+.link-text {
+  display: inline-block;
+  position: relative;
+}
+
 @media (min-width: 991px) {
-  .nav-link::before {
+  .link-text::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -48,8 +53,8 @@
     transition: 0.3s ease-in-out;
   }
 
-  .nav-link:hover::before {
-    width: 40%;
+  .nav-link:hover .link-text::before {
+    width: 100%;
     visibility: visible;
   }
 }
