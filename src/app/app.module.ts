@@ -8,7 +8,7 @@ import { NavBarComponent } from './shared/components/layout/nav-bar/nav-bar.comp
 import { FooterComponent } from './shared/components/layout/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoaderComponent } from './shared/components/loader/loader.component';
-
+import { ScrollTopModule } from 'primeng/scrolltop';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +17,12 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
     FooterComponent,
     LoaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ScrollTopModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
