@@ -13,14 +13,11 @@
         <p id="line-1">We help businesses growing their sales pipeline,</p>
         <p id="line-2">and confidently guide them into new territories.</p>
       </div>
-      <div pAnimateOnScroll enterClass="fadeinzoom" leaveClass="">
+      <div>
         <button class="btn">DIVE INTO OUR SERVICES</button>
       </div>
     </div>
     <div
-      pAnimateOnScroll
-      enterClass="fadeinzoom"
-      leaveClass=""
       class="col-md-12 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center"
     >
       <img class="support-img" src="assets/img/support.png" alt="" />
@@ -81,7 +78,13 @@
       />
     </div>
     <div class="col-md-12 col-sm-12 col-lg-6 d-flex flex-column">
-      <p class="profit-description">
+      <p
+        pAnimateOnScroll
+        enterClass="fadeInRight"
+        leaveClass="fadeOutRight"
+        [once]="false"
+        class="profit-description"
+      >
         <strong class="highlight-text"
           >you looking to skyrocket your pipeline growth and venture into new
           markets ?
@@ -113,8 +116,7 @@
         pAnimateOnScroll
         enterClass="fadeinzoom"
         leaveClass=""
-        class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center"
-        style="margin-top: 20px"
+        class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center my-3"
       >
         <h1 class="strategie-title">STRATEGIES FOR SALES GROWTH</h1>
       </div>
@@ -285,8 +287,327 @@
   </div>
 </div>
 <div class="why-choose-us-container">
-  <div class="why-choose-us-title">
-    Why Choose <img class="" src="assets/img/logo.png" /> ? tell me why tell me
-    why tell me why
+  <div class="text-center d-flex flex-column">
+    <h1
+      pAnimateOnScroll
+      enterClass="second-title"
+      leaveClass=""
+      [once]="false"
+      class="why-choose-us-title"
+    >
+      Why Choose
+    </h1>
+    <div
+      pAnimateOnScroll
+      enterClass="first-title"
+      leaveClass=""
+      [once]="false"
+      class="d-flex align-items-center justify-content-center"
+    >
+      <img class="" src="assets/img/logo.png" />
+      <h1 class="why-choose-us-title" style="padding-top: 1rem">?</h1>
+    </div>
+  </div>
+  <div class="my-2" style="padding: 3rem">
+    <div class="row">
+      <div
+        class="col-md-12 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-4 d-flex align-items-center"
+        style="position: relative"
+      >
+        <div
+          pAnimateOnScroll
+          enterClass="fadeinzoom"
+          leaveClass="fadeoutzoom"
+          [once]="false"
+          class="circle"
+          style="position: absolute"
+        >
+          <div class="circle-title">
+            <span class="bi bi-arrow-up-right" style="font-size: 6rem"></span>
+          </div>
+          <div class="line-container">
+            <svg viewBox="0 0 200 100" class="line-svg">
+              <defs>
+                <marker
+                  id="arrowhead"
+                  markerWidth="10"
+                  markerHeight="10"
+                  refX="5"
+                  refY="5"
+                  orient="auto"
+                >
+                  <path d="M0,0 L10,5 L0,10" fill="black" />
+                </marker>
+              </defs>
+              <path
+                class="draw1"
+                d="M10 50 Q 30 20, 50 50 T 100 50"
+                stroke-width="3"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <div class="horizontal-line"></div>
+        </div>
+
+        <p
+          pAnimateOnScroll
+          enterClass="fadeInrightStrategie"
+          leaveClass=""
+          [once]="false"
+          class="text-description"
+        >
+          <span class="title-description text-uppercase">About us</span>
+          <br />
+          We speak your language and can help you explain clearly how financial
+          products work. We help you to grow through knowledge and IT with a
+          personal touch.
+        </p>
+      </div>
+      <div
+        class="col-md-12 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-4 d-flex align-items-center"
+        style="position: relative"
+      >
+        <div
+          pAnimateOnScroll
+          enterClass="fadeinzoom"
+          leaveClass="fadeoutzoom"
+          [once]="false"
+          class="circle"
+          style="position: absolute"
+        >
+          <div class="circle-title">
+            <span class="bi bi-lightning-charge" style="font-size: 6rem"></span>
+          </div>
+          <div class="line-container">
+            <svg viewBox="0 0 200 100" class="line-svg">
+              <defs>
+                <marker
+                  id="arrowhead"
+                  markerWidth="10"
+                  markerHeight="10"
+                  refX="5"
+                  refY="5"
+                  orient="auto"
+                >
+                  <path d="M0,0 L10,5 L0,10" fill="black" />
+                </marker>
+              </defs>
+              <path
+                class="draw2"
+                d="M10 50 Q 30 20, 50 50 T 100 50"
+                stroke-width="3"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <div class="horizontal-line"></div>
+        </div>
+        <p
+          pAnimateOnScroll
+          enterClass="fadeInrightStrategie"
+          leaveClass=""
+          [once]="false"
+          class="text-description"
+        >
+          <span class="title-description text-uppercase">fast</span>
+          <br />
+          Business plan elegantly transforms sublimated pool of loyal editions,
+          optimizing budgets.
+        </p>
+      </div>
+      <div
+        class="col-md-12 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-4 d-flex align-items-center"
+        style="position: relative"
+      >
+        <div
+          pAnimateOnScroll
+          enterClass="fadeinzoom"
+          leaveClass="fadeoutzoom"
+          [once]="false"
+          class="circle"
+          style="position: absolute"
+        >
+          <div class="circle-title">
+            <span class="bi bi-percent" style="font-size: 6rem"></span>
+          </div>
+          <div class="line-container">
+            <svg viewBox="0 0 200 100" class="line-svg">
+              <defs>
+                <marker
+                  id="arrowhead"
+                  markerWidth="10"
+                  markerHeight="10"
+                  refX="5"
+                  refY="5"
+                  orient="auto"
+                >
+                  <path d="M0,0 L10,5 L0,10" fill="black" />
+                </marker>
+              </defs>
+              <path
+                class="draw3"
+                d="M10 50 Q 30 20, 50 50 T 100 50"
+                stroke-width="3"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <div class="horizontal-line"></div>
+        </div>
+        <p
+          pAnimateOnScroll
+          enterClass="fadeInrightStrategie"
+          leaveClass=""
+          [once]="false"
+          class="text-description"
+        >
+          <span class="title-description text-uppercase">low fee</span>
+          <br />
+          Sponsorship, summing these examples, it is doable. SWOT-analysis,
+          according to kolter,competitive.
+        </p>
+      </div>
+      <div
+        class="col-md-12 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-4 d-flex align-items-center"
+        style="position: relative"
+      >
+        <div
+          pAnimateOnScroll
+          enterClass="fadeinzoom"
+          leaveClass="fadeoutzoom"
+          [once]="false"
+          class="circle"
+          style="position: absolute"
+        >
+          <div class="circle-title">
+            <span class="bi bi-headset" style="font-size: 6rem"></span>
+          </div>
+          <div class="line-container">
+            <svg viewBox="0 0 200 100" class="line-svg">
+              <defs>
+                <marker
+                  id="arrowhead"
+                  markerWidth="10"
+                  markerHeight="10"
+                  refX="5"
+                  refY="5"
+                  orient="auto"
+                >
+                  <path d="M0,0 L10,5 L0,10" fill="black" />
+                </marker>
+              </defs>
+              <path
+                class="draw4"
+                d="M10 50 Q 30 20, 50 50 T 100 50"
+                stroke-width="3"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <div class="horizontal-line"></div>
+        </div>
+        <p
+          pAnimateOnScroll
+          enterClass="fadeInrightStrategie"
+          leaveClass=""
+          [once]="false"
+          class="text-description"
+        >
+          <span class="title-description text-uppercase">quick support</span>
+          <br />
+          The fact that the advertising platform changes the method of studying
+          the market.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="partners-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center">
+        <h1 class="partners-title">They have confidence in us</h1>
+      </div>
+      <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center">
+        <p-carousel
+          [value]="partners"
+          [showIndicators]="false"
+          [numVisible]="2"
+          [numScroll]="2"
+          [autoplayInterval]="3000"
+        >
+          <ng-template let-partner pTemplate="item">
+            <div class="text-center">
+              <img
+                style="height: 170px; width: 170px"
+                src="assets/img/{{ partner.image }}"
+                [alt]="partner.name"
+                class="w-6 shadow-2"
+              />
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container contact-container">
+  <div class="row">
+    <div
+      class="col-md-6 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-2 d-flex justify-content-center"
+    >
+      opions of clients
+    </div>
+    <div
+      class="col-md-6 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-2 d-flex justify-content-center"
+    >
+      <div class="row">
+        <div
+          pAnimateOnScroll
+          enterClass="fadeInRight"
+          leaveClass=""
+          [once]="false"
+          cLass="wrapper col-md-12 col-sm-12 col-lg-12"
+          style="position: relative"
+        >
+          <form>
+            <h1>Contatc us</h1>
+            <p>Any question? Just write us a message!</p>
+            <input
+              class="col-md-12 col-sm-12 col-lg-12"
+              type="text"
+              pLaceholder="Name"
+              required
+            />
+            <input
+              class="col-md-12 col-sm-12 col-lg-12"
+              type="email"
+              placeholder="Email"
+              required
+            />
+            <textarea
+              class="col-md-12 col-sm-12 col-lg-12"
+              cols="30"
+              rows="3"
+              placeholder="Message"
+              required
+            ></textarea>
+            <button>Send</button>
+          </form>
+          <img
+            style="
+              position: absolute;
+              top: -100px;
+              left: 65%;
+              width: 70%;
+              height: 60%;
+            "
+            src="assets/img/question.png"
+            alt="question"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>

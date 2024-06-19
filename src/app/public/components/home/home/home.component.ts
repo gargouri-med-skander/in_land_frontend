@@ -9,10 +9,47 @@ import { LoaderService } from 'src/app/shared/services/loader.service';
 export class HomeComponent implements OnInit {
   screenWidth!: number;
   leftPercentage = 14.5;
+  partners: any[] = [];
+  responsiveOptions: any[] | undefined;
   constructor(private loader: LoaderService) {}
 
   ngOnInit(): void {
-    this.loader.setLoaderActive(true);
+    this.partners = [
+      {
+        name: 'partner1',
+        image: 'partner1.png',
+      },
+      {
+        name: 'partner2',
+        image: 'partner2.png',
+      },
+      {
+        name: 'partner3',
+        image: 'partner3.png',
+      },
+      {
+        name: 'partner4',
+        image: 'partner4.png',
+      },
+    ];
+    this.responsiveOptions = [
+      {
+        breakpoint: '1199px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '991px',
+        numVisible: 2,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
+    this.loader.setLoaderActive(false);
     setTimeout(() => {
       this.loader.setLoaderActive(false);
     }, 1000);
@@ -59,12 +96,6 @@ export class HomeComponent implements OnInit {
     const animatedTitleElement = document.querySelector(
       '.under-logo-title'
     ) as HTMLElement;
-    const animatedQuestionElement = document.querySelector(
-      '.highlight-text'
-    ) as HTMLElement;
-    const animatedParagraphElement = document.querySelector(
-      '.profit-description'
-    ) as HTMLElement;
 
     if (rotateValue <= 373) {
       animatedElement.style.transform = `translateX(${translateXValue / 2}px) rotate(${rotateValue}deg)`;
@@ -83,19 +114,11 @@ export class HomeComponent implements OnInit {
       if (rotateValue > 300) {
         animatedTitleElement.classList.remove('fadeoutzoom');
         animatedTitleElement.classList.add('fadeinzoom');
-        animatedQuestionElement.classList.remove('fadeOutRight');
-        animatedQuestionElement.classList.add('fadeInRight');
-        animatedParagraphElement.classList.remove('fadeOutRight');
-        animatedParagraphElement.classList.add('fadeInRight');
       }
     } else {
       animatedFullElement.style.opacity = '0';
       animatedTitleElement.classList.remove('fadeinzoom');
       animatedTitleElement.classList.add('fadeoutzoom');
-      animatedQuestionElement.classList.remove('fadeOutRight');
-      animatedQuestionElement.classList.add('fadeInRight');
-      animatedParagraphElement.classList.remove('fadeInRight');
-      animatedParagraphElement.classList.add('fadeOutRight');
     }
   }
 }
