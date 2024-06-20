@@ -1,5 +1,12 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { LoaderService } from 'src/app/shared/services/loader.service';
+import { SectionService } from 'src/app/shared/services/section-service.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +18,10 @@ export class HomeComponent implements OnInit {
   leftPercentage = 14.5;
   partners: any[] = [];
   responsiveOptions: any[] | undefined;
-  constructor(private loader: LoaderService) {}
+  constructor(
+    private loader: LoaderService,
+    private sectionService: SectionService
+  ) {}
 
   ngOnInit(): void {
     this.partners = [
@@ -167,6 +177,28 @@ export class HomeComponent implements OnInit {
       animatedFullElement.style.opacity = '0';
       animatedTitleElement.classList.remove('fadeinzoom');
       animatedTitleElement.classList.add('fadeoutzoom');
+    }
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const containerStrategie = document.getElementById('strategie-container');
+    if (!containerStrategie) return;
+    const containerPartners = document.getElementById('partners-container');
+    if (!containerPartners) return;
+    const scrollTop = window.scrollY;
+    const strategieContainerTop = containerStrategie.offsetTop;
+    const partnersContainerTop = containerPartners.offsetTop;
+
+    if (
+      (scrollTop >= strategieContainerTop &&
+        scrollTop < strategieContainerTop + containerStrategie.scrollHeight) ||
+      (scrollTop >= partnersContainerTop &&
+        scrollTop < partnersContainerTop + containerPartners.scrollHeight)
+    ) {
+      this.sectionService.setCurrentSection('change');
+    } else {
+      this.sectionService.setCurrentSection('default');
     }
   }
 }
