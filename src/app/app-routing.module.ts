@@ -29,6 +29,11 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: '**',
+    redirectTo: APP_ROUTES.HOME,
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
