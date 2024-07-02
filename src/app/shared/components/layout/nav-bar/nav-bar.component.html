@@ -1,10 +1,19 @@
 <nav
   id="navbar"
   class="navbar navbar-expand-lg fixed-top"
-  [ngClass]="{ scrolled: isScrolled }"
+  [ngClass]="{ scrolled: isScrolled, hidden: isHidden }"
+  [ngStyle]="{
+    background: isBlack ? 'transparent' : 'rgba(0, 0, 0, 0.8)',
+  }"
 >
   <div class="container">
-    <img class="navbar-brand me-auto" [src]="logoSrc" />
+    <img
+      class="navbar-brand me-auto"
+      [src]="logoSrc"
+      style="margin-left: 0px; cursor: pointer"
+      routerLink=""
+    />
+
     <div
       class="offcanvas offcanvas-end"
       tabindex="-1"
@@ -14,7 +23,7 @@
       <div class="offcanvas-header">
         <img
           class="offcanvas-title"
-          src="assets/img/logo.png"
+          src="assets/img/part-logo.png"
           style="height: 47px; width: 120px"
         />
         <button
@@ -30,24 +39,8 @@
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
-              [class.active]="isActive('home')"
-              href="#"
-              >Home</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
-              class="nav-link mx-lg-2"
-              href="#"
-              >About In Land</a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
-              class="nav-link mx-lg-2"
-              href="#"
+              routerLink="services"
+              [class.active]="isActive('services')"
               >Services</a
             >
           </li>
@@ -55,7 +48,8 @@
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
-              href="#"
+              routerLink="markets"
+              [class.active]="isActive('markets')"
               >Markets</a
             >
           </li>
@@ -63,7 +57,8 @@
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
-              href="#"
+              routerLink="industries"
+              [class.active]="isActive('industries')"
               >Industries</a
             >
           </li>
@@ -71,7 +66,8 @@
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
-              href="#"
+              routerLink="benefits"
+              [class.active]="isActive('benefits')"
               >Benefits</a
             >
           </li>
@@ -79,14 +75,31 @@
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
-              href="#"
-              >Compliance</a
+              routerLink="about-us"
+              [class.active]="isActive('about-us')"
+              >About us</a
             >
           </li>
         </ul>
       </div>
     </div>
-    <a href="#" class="booking-button">Book a meeting</a>
+    <div class="custom-select-wrapper">
+      <div class="custom-select" (click)="toggleDropdown()">
+        <img [src]="selectedFlag" class="selected-flag" />
+        <span class="arrow" [ngStyle]="{ color: isBlack ? '#000' : '#fff' }">
+          &#9662;
+        </span>
+      </div>
+      <div class="custom-options" [ngClass]="{ show: dropdownOpen }">
+        <div
+          class="custom-option"
+          *ngFor="let flag of getFilteredFlags()"
+          (click)="selectFlag(flag.url)"
+        >
+          <img [src]="flag.url" />
+        </div>
+      </div>
+    </div>
     <button
       class="navbar-toggler"
       type="button"

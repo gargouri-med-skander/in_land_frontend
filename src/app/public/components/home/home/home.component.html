@@ -1,33 +1,118 @@
-<div class="home-container d-flex justify-content-center flex-column">
+<div class="fixed-button">
+  <button class="text-uppercase" style="width: 210px">Book a meeting</button>
+</div>
+<div
+  id="home-container"
+  class="home-container d-flex justify-content-center flex-column"
+>
   <div class="overlay"></div>
-  <div class="row" style="margin-top: 10px">
-    <div
-      class="col-md-12 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center flex-column"
-      [ngStyle]="screenWidth <= 768 ? { 'margin-top': '0px' } : {}"
-    >
-      <div>
-        <h1 class="first-title">MASTER YOUR MARKET,</h1>
-        <h1 class="second-title">ACCELERATE YOUR GROWTH.</h1>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-md-12 col-sm-12 col-lg-6 flex-column"
+        [ngStyle]="screenWidth <= 768 ? { 'margin-top': '0px' } : {}"
+      >
+        <div>
+          <h1 class="first-title">MASTER YOUR MARKET,</h1>
+          <h1 class="second-title">ACCELERATE YOUR GROWTH.</h1>
+        </div>
+        <div class="my-4">
+          <p class="description">
+            We help businesses growing their sales pipeline and confidently
+            guide them into new territories.
+          </p>
+        </div>
+        <div>
+          <button class="btn">Get a Quote</button>
+          <button
+            class="btn mx-2"
+            style="
+              background: rgb(255, 255, 255);
+              z-index: 2;
+              color: #194049;
+              border: 1px solid #194049;
+            "
+          >
+            Learn more
+          </button>
+        </div>
       </div>
-      <div class="description">
-        <p id="line-1">We help businesses growing their sales pipeline,</p>
-        <p id="line-2">and confidently guide them into new territories.</p>
+      <div
+        class="col-md-12 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center"
+      >
+        <div class="support" style="margin-top: 50px">
+          <div class="first-block">
+            +<span style="color: #fe7773; font-weight: 600">€</span
+            ><span
+              [innerText]="salesPipeline"
+              style="color: #fe7773; font-weight: 600"
+              >0</span
+            >
+            million Sales Pipeline
+          </div>
+          <div class="second-block">
+            +<span
+              [innerText]="meetings"
+              style="color: #fe7773; font-weight: 600"
+              >0</span
+            >
+            Qualified Meeting
+          </div>
+          <div class="third-block">
+            +<span style="color: #fe7773; font-weight: 600">€</span
+            ><span
+              [innerText]="clientRevenue"
+              style="color: #fe7773; font-weight: 600"
+              >0</span
+            >
+            million New Client Revenue
+          </div>
+          <div class="fourth-block">
+            +<span
+              [innerText]="markets"
+              style="color: #fe7773; font-weight: 600"
+              >0</span
+            >
+            Markets Covered
+          </div>
+          <div class="fifth-block">
+            +<span
+              [innerText]="languages"
+              style="color: #fe7773; font-weight: 600"
+              >0</span
+            >
+            Native languages
+          </div>
+        </div>
       </div>
-      <div>
-        <button class="btn">DIVE INTO OUR SERVICES</button>
+      <div class="col-md-9 col-sm-9 col-lg-9 my-5">
+        <div class="d-flex justify-content-center flex-column">
+          <div class="horizontal-bar my-4"></div>
+          <div>
+            <h3 class="third-title">Need to Grow Your Business?</h3>
+            <h3 class="third-title">
+              Encountering Challenges in Generating High-Quality
+            </h3>
+            <h3 class="third-title">Leads and Driving Sales Growth?</h3>
+          </div>
+          <div class="my-3">
+            <p class="description-solution">
+              Navigating B2B lead generation in today's competitive marketplace
+              is challenging. Implementing effective strategies and adapting to
+              evolving trends can be daunting, potentially leading to stagnant
+              growth and missed opportunities.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div
-      class="col-md-12 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center"
-    >
-      <img class="support-img" src="assets/img/support.png" alt="" />
     </div>
   </div>
 </div>
+
 <div
-  class="container animation-container"
-  (window:scroll)="onScroll($event)"
-  style="overflow-x: hidden"
+  class="animation-container"
+  (window:scroll)="onScroll()"
+  style="overflow: hidden; height: auto"
 >
   <div class="row" style="margin-top: 20px">
     <div
@@ -59,66 +144,49 @@
       />
     </div>
   </div>
-  <div class="row" style="margin-top: 110px">
-    <div
-      class="col-12 d-flex align-items-center justify-content-center flex-column"
-    >
-      <h1 class="under-logo-title">INCREASE YOUR PIPELINE GROWTH</h1>
-    </div>
-  </div>
-  <div class="row" style="margin-top: 40px">
-    <div class="col-md-12 col-sm-12 col-lg-6">
-      <img
-        pAnimateOnScroll
-        enterClass="fadeinzoom"
-        leaveClass="fadeoutzoom"
-        class="profit-img"
-        src="assets/img/profit.png"
-        alt=""
-      />
-    </div>
-    <div class="col-md-12 col-sm-12 col-lg-6 d-flex flex-column">
-      <p
-        pAnimateOnScroll
-        enterClass="fadeInRight"
-        leaveClass="fadeOutRight"
-        [once]="false"
-        class="profit-description"
-      >
-        <strong class="highlight-text"
-          >you looking to skyrocket your pipeline growth and venture into new
-          markets ?
-        </strong>
-        <span
-          class="text-content"
-          [innerHTML]="
-            'inland offers specialised services in demand, lead generation, and account-based marketing to help you achieve your goals. With our expertise, you can save valuable time, effort, and resources by eliminating the need for recruiting, training, and onboarding BDRs. Tap into our profound market knowledge and custom go-to-market strategies that resonate with your target audience, ensuring optimum results. Experience success across diverse markets with our proven strategies. Let inland take your business to new heights.'
-              | colorChanger: 'inland' : '#87ceeb'
-          "
-        >
-        </span>
-      </p>
-      <div
-        class="d-flex justify-content-center"
-        pAnimateOnScroll
-        enterClass="fadeinzoom"
-        leaveClass="fadeoutzoom"
-      >
-        <button class="btn">DISCOVER ADVANTAGE</button>
+
+  <div class="row">
+    <div class="challenge-container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <div class="earth">
+              <img class="map-img" src="assets/img/map.png" />
+            </div>
+          </div>
+          <div class="col-5 d-flex flex-column justify-content-center">
+            <div
+              class="my-2 d-flex flex-column justify-content-start"
+              style="position: relative"
+            ></div>
+            <div>
+              <p class="challenge-text">
+                At Inland, we leverage our expertise in B2B lead generation to
+                address diverse business challenges across various markets and
+                industries. Our tailored solutions, from strategic planning to
+                execution, consistently deliver measurable results that drive
+                substantial growth for your business.
+              </p>
+            </div>
+            <div class="d-flex justify-content-start">
+              <button class="btn">Learn more</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<div id="strategie-container" class="strategie-container">
-  <div class="container">
+<div id="service-container" class="service-container">
+  <div class="container-fluid">
     <div class="row">
       <div
         pAnimateOnScroll
         enterClass="fadeinzoom"
         leaveClass=""
-        class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center my-3"
+        class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center my-4"
       >
-        <h1 class="strategie-title">STRATEGIES FOR SALES GROWTH</h1>
+        <h1 class="service-title text-uppercase">Our services</h1>
       </div>
       <div
         pAnimateOnScroll
@@ -126,166 +194,37 @@
         leaveClass="fadeOutRight"
         class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center"
       >
-        <p class="strategie-description">
-          <span
-            class="strategie-description"
-            [innerHTML]="
-              'inland generates a robust sales pipeline by employing a strategic, multi-channel approach. We tailor our outbound prospecting efforts through thorough research on accounts and buyer personas. Our comprehensive strategyies and proven tactics incorporate targeted email outreach, calling, and LinkedIn campaigns. By analyzing your target markets, we identify the channels that resonate with your audience, amplify your message, and drive business growth.'
-                | colorChanger: 'inland' : '#fe7773'
-            "
-          >
-          </span>
+        <p class="service-description text-center">
+          Our B2B Marketing and Lead Generation services drive growth and
+          success for your business. We specialize in strategic marketing
+          planning, targeted lead generation campaigns, and engaging prospects
+          effectively. Our focus on measurable results and maximizing ROI helps
+          B2B companies thrive in today's competitive marketplace.
         </p>
       </div>
-    </div>
-  </div>
-  <div class="row" style="margin-top: 20px">
-    <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-around">
-      <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
-        <div class="col-1 d-flex align-items-center flex-column">
-          <div class="outer-circle">
-            <div class="inner-circle"></div>
-            <div class="vertical-line"></div>
-          </div>
-        </div>
-        <div
-          pAnimateOnScroll
-          enterClass="fadeInleftStrategie"
-          leaveClass=""
-          class="col d-flex flex-column"
-        >
-          <span class="title d-flex justify-content-start">IDENTIFY</span>
-          <span class="strategie-description"
-            >We define your target accounts by analyzing your ideal customer
-            profile, conduct market analysis to understand the dynamics and
-            opportunities, and develop detailed buyer personas to tailor our
-            messaging and engagement strategies. Our targeted approach aligns
-            outbound prospecting with your business goals for maximum
-            success.</span
-          >
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
-        <div class="col-1 d-flex align-items-center flex-column">
-          <div class="outer-circle">
-            <div class="inner-circle"></div>
-            <div class="vertical-line"></div>
-          </div>
-        </div>
-        <div
-          pAnimateOnScroll
-          enterClass="fadeInleftStrategie"
-          leaveClass=""
-          class="col d-flex flex-column"
-        >
-          <span class="title d-flex justify-content-start">DISCOVER</span>
-          <span class="strategie-description"
-            >In the discovery phase, we dive deep to understand potential
-            clients and markets. Our research lays the foundation for strategic
-            planning. Through contact account mapping, we highlight departments,
-            teams, and their connections.</span
-          >
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
-        <div class="col-1 d-flex align-items-center flex-column">
-          <div class="outer-circle">
-            <div class="inner-circle"></div>
-            <div class="vertical-line"></div>
-          </div>
-        </div>
-        <div
-          pAnimateOnScroll
-          enterClass="fadeInleftStrategie"
-          leaveClass=""
-          class="col d-flex flex-column"
-        >
-          <span class="title d-flex justify-content-start">QUALIFY</span>
-          <span class="strategie-description"
-            >inland focuses on the identification of buying centers within
-            organizations to see who makes the decisions. We also pay attention
-            to their pain points, challenges, and needs. By understanding these,
-            inland identifies the leads with the highest potential for
-            conversion along your sales piepline.</span
-          >
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 100px">
-      <div class="col-12 d-flex justify-content-around">
-        <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
-          <div class="col-1 d-flex align-items-center flex-column">
-            <div class="outer-circle">
-              <div class="inner-circle"></div>
-              <div class="vertical-line"></div>
-            </div>
-          </div>
+      <div class="my-2 col-md-12 col-sm-12 col-lg-12">
+        <div class="row d-flex justify-content-center">
           <div
-            pAnimateOnScroll
-            enterClass="fadeInrightStrategie"
-            leaveClass=""
-            class="col d-flex flex-column"
+            [ngStyle]="{
+              background:
+                'linear-gradient(rgba(25,64,73,0.4), rgba(0,0,0,0.6)),url(' +
+                item.image +
+                ')',
+            }"
+            class="service-card"
+            *ngFor="let item of carouselItems"
           >
-            <span class="title d-flex justify-content-start">ENGAGE</span>
-            <span class="strategie-description"
-              >Rather than relying on a single method, at inland we harness the
-              power of various platforms and communication methods, from emails
-              and phone calls to LinkedIn outreach. By diversifying our outreach
-              methods, we maximize opportunities and boost the chances of
-              successful engagement.</span
-            >
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
-          <div class="col-1 d-flex align-items-center flex-column">
-            <div class="outer-circle">
-              <div class="inner-circle"></div>
-              <div class="vertical-line"></div>
+            <div calss="service-card-body">
+              <h2 class="card-title">{{ item.title }}</h2>
+              <p class="card-description">{{ item.description }}</p>
             </div>
-          </div>
-          <div
-            pAnimateOnScroll
-            enterClass="fadeInrightStrategie"
-            leaveClass=""
-            class="col d-flex flex-column"
-          >
-            <span class="title d-flex justify-content-start">NURTURE</span>
-            <span class="strategie-description"
-              >inland emphasizes long-term relationship building with targeted
-              accounts and prospects. We stay engaged, adapting to their
-              changing needs through regular communication, sharing valuable
-              content, and timely follow-ups. This approach enhances our chances
-              of turning opportunities into fruitful collaborations.</span
-            >
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
-          <div class="col-1 d-flex align-items-center flex-column">
-            <div class="outer-circle">
-              <div class="inner-circle"></div>
-              <div class="vertical-line"></div>
-            </div>
-          </div>
-          <div
-            pAnimateOnScroll
-            enterClass="fadeInrightStrategie"
-            leaveClass=""
-            class="col d-flex flex-column"
-          >
-            <span class="title d-flex justify-content-start">REPORT</span>
-            <span class="strategie-description"
-              >inland offers regular performance reviews, tailored to your
-              team's requirements and needs. These comprehensive updates provide
-              insights into our activities, achievements, and areas of
-              improvement. Beyond just gauging performance, we also diligently
-              track the ROI.</span
-            >
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="why-choose-us-container">
   <div class="text-center d-flex flex-column">
     <h1
@@ -308,11 +247,12 @@
       <h1 class="why-choose-us-title" style="padding-top: 1rem">?</h1>
     </div>
   </div>
-  <div class="my-2" style="padding: 3rem">
+  <div class="container" style="padding: 3rem">
     <div class="row">
       <div
         class="col-md-12 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-4 d-flex align-items-center"
         style="position: relative"
+        *ngFor="let item of whyChooseInland"
       >
         <div
           pAnimateOnScroll
@@ -323,9 +263,9 @@
           style="position: absolute"
         >
           <div class="circle-title">
-            <span class="bi bi-arrow-up-right" style="font-size: 6rem"></span>
+            <span [ngClass]="item.icon" style="font-size: 4rem"></span>
           </div>
-          <div class="line-container">
+          <!--           <div class="line-container">
             <svg viewBox="0 0 200 100" class="line-svg">
               <defs>
                 <marker
@@ -346,10 +286,9 @@
                 fill="none"
               />
             </svg>
-          </div>
+          </div> -->
           <div class="horizontal-line"></div>
         </div>
-
         <p
           pAnimateOnScroll
           enterClass="fadeInrightStrategie"
@@ -357,168 +296,182 @@
           [once]="false"
           class="text-description"
         >
-          <span class="title-description text-uppercase">About us</span>
+          <span class="title-description text-uppercase">{{ item.title }}</span>
           <br />
-          We speak your language and can help you explain clearly how financial
-          products work. We help you to grow through knowledge and IT with a
-          personal touch.
+          {{ item.description }}
         </p>
       </div>
+    </div>
+  </div>
+</div>
+<div id="strategie-container" class="strategie-container">
+  <div class="container">
+    <div class="row">
       <div
-        class="col-md-12 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-4 d-flex align-items-center"
-        style="position: relative"
+        pAnimateOnScroll
+        enterClass="fadeinzoom"
+        leaveClass=""
+        class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center my-3"
       >
-        <div
-          pAnimateOnScroll
-          enterClass="fadeinzoom"
-          leaveClass="fadeoutzoom"
-          [once]="false"
-          class="circle"
-          style="position: absolute"
-        >
-          <div class="circle-title">
-            <span class="bi bi-lightning-charge" style="font-size: 6rem"></span>
-          </div>
-          <div class="line-container">
-            <svg viewBox="0 0 200 100" class="line-svg">
-              <defs>
-                <marker
-                  id="arrowhead"
-                  markerWidth="10"
-                  markerHeight="10"
-                  refX="5"
-                  refY="5"
-                  orient="auto"
-                >
-                  <path d="M0,0 L10,5 L0,10" fill="black" />
-                </marker>
-              </defs>
-              <path
-                class="draw2"
-                d="M10 50 Q 30 20, 50 50 T 100 50"
-                stroke-width="3"
-                fill="none"
-              />
-            </svg>
-          </div>
-          <div class="horizontal-line"></div>
-        </div>
-        <p
-          pAnimateOnScroll
-          enterClass="fadeInrightStrategie"
-          leaveClass=""
-          [once]="false"
-          class="text-description"
-        >
-          <span class="title-description text-uppercase">fast</span>
-          <br />
-          Business plan elegantly transforms sublimated pool of loyal editions,
-          optimizing budgets.
-        </p>
+        <h1 class="strategie-title">STRATEGIES FOR SALES GROWTH</h1>
       </div>
       <div
-        class="col-md-12 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-4 d-flex align-items-center"
-        style="position: relative"
+        pAnimateOnScroll
+        enterClass="fadeInRight"
+        leaveClass="fadeOutRight"
+        class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center"
       >
-        <div
-          pAnimateOnScroll
-          enterClass="fadeinzoom"
-          leaveClass="fadeoutzoom"
-          [once]="false"
-          class="circle"
-          style="position: absolute"
-        >
-          <div class="circle-title">
-            <span class="bi bi-percent" style="font-size: 6rem"></span>
-          </div>
-          <div class="line-container">
-            <svg viewBox="0 0 200 100" class="line-svg">
-              <defs>
-                <marker
-                  id="arrowhead"
-                  markerWidth="10"
-                  markerHeight="10"
-                  refX="5"
-                  refY="5"
-                  orient="auto"
-                >
-                  <path d="M0,0 L10,5 L0,10" fill="black" />
-                </marker>
-              </defs>
-              <path
-                class="draw3"
-                d="M10 50 Q 30 20, 50 50 T 100 50"
-                stroke-width="3"
-                fill="none"
-              />
-            </svg>
-          </div>
-          <div class="horizontal-line"></div>
-        </div>
-        <p
-          pAnimateOnScroll
-          enterClass="fadeInrightStrategie"
-          leaveClass=""
-          [once]="false"
-          class="text-description"
-        >
-          <span class="title-description text-uppercase">low fee</span>
-          <br />
-          Sponsorship, summing these examples, it is doable. SWOT-analysis,
-          according to kolter,competitive.
+        <p class="strategie-description text-center">
+          <span
+            class="strategie-description"
+            [innerHTML]="
+              'Inland generates a robust sales pipeline with a strategic, multi-channel approach. We tailor outbound prospecting through thorough research and targeted email, calling, and LinkedIn campaigns. By analyzing target markets, we identify effective channels to amplify your message and drive growth.'
+                | colorChanger: 'inland' : '#fe7773'
+            "
+          >
+          </span>
         </p>
       </div>
-      <div
-        class="col-md-12 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-4 d-flex align-items-center"
-        style="position: relative"
-      >
-        <div
-          pAnimateOnScroll
-          enterClass="fadeinzoom"
-          leaveClass="fadeoutzoom"
-          [once]="false"
-          class="circle"
-          style="position: absolute"
-        >
-          <div class="circle-title">
-            <span class="bi bi-headset" style="font-size: 6rem"></span>
-          </div>
-          <div class="line-container">
-            <svg viewBox="0 0 200 100" class="line-svg">
-              <defs>
-                <marker
-                  id="arrowhead"
-                  markerWidth="10"
-                  markerHeight="10"
-                  refX="5"
-                  refY="5"
-                  orient="auto"
-                >
-                  <path d="M0,0 L10,5 L0,10" fill="black" />
-                </marker>
-              </defs>
-              <path
-                class="draw4"
-                d="M10 50 Q 30 20, 50 50 T 100 50"
-                stroke-width="3"
-                fill="none"
-              />
-            </svg>
-          </div>
-          <div class="horizontal-line"></div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px">
+    <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
+      <div class="col-1 d-flex align-items-center flex-column">
+        <div class="outer-circle">
+          <div class="inner-circle"></div>
+          <div class="vertical-line"></div>
         </div>
-        <p
-          pAnimateOnScroll
-          enterClass="fadeInrightStrategie"
-          leaveClass=""
-          [once]="false"
-          class="text-description"
+      </div>
+      <div
+        pAnimateOnScroll
+        enterClass="fadeInleftStrategie"
+        leaveClass=""
+        class="col d-flex flex-column"
+      >
+        <span class="title d-flex justify-content-start">IDENTIFY</span>
+        <span class="strategie-description"
+          >We analyze your ideal customer, conduct market analysis, and create
+          buyer personas to align prospecting with your business goals.</span
         >
-          <span class="title-description text-uppercase">quick support</span>
-          <br />
-          The fact that the advertising platform changes the method of studying
-          the market.
-        </p>
+      </div>
+    </div>
+    <div
+      class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center"
+      [ngStyle]="screenWidth <= 768 ? { 'margin-top': '20px' } : {}"
+    >
+      <div class="col-1 d-flex align-items-center flex-column">
+        <div class="outer-circle">
+          <div class="inner-circle"></div>
+          <div class="vertical-line"></div>
+        </div>
+      </div>
+      <div
+        pAnimateOnScroll
+        enterClass="fadeInleftStrategie"
+        leaveClass=""
+        class="col d-flex flex-column"
+      >
+        <span class="title d-flex justify-content-start">DISCOVER</span>
+        <span class="strategie-description"
+          >In the discovery phase, we research potential clients and markets,
+          laying the foundation for strategic planning and mapping key
+          contacts.</span
+        >
+      </div>
+    </div>
+    <div
+      class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center"
+      [ngStyle]="screenWidth <= 768 ? { 'margin-top': '20px' } : {}"
+    >
+      <div class="col-1 d-flex align-items-center flex-column">
+        <div class="outer-circle">
+          <div class="inner-circle"></div>
+          <div class="vertical-line"></div>
+        </div>
+      </div>
+      <div
+        pAnimateOnScroll
+        enterClass="fadeInleftStrategie"
+        leaveClass=""
+        class="col d-flex flex-column"
+      >
+        <span class="title d-flex justify-content-start">QUALIFY</span>
+        <span class="strategie-description"
+          >Inland identifies buying centers and decision-makers, focusing on
+          their pain points and needs to find high-potential leads for
+          conversion.</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 100px">
+    <div class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center">
+      <div class="col-1 d-flex align-items-center flex-column">
+        <div class="outer-circle">
+          <div class="inner-circle"></div>
+          <div class="vertical-line"></div>
+        </div>
+      </div>
+      <div
+        pAnimateOnScroll
+        enterClass="fadeInrightStrategie"
+        leaveClass=""
+        class="col d-flex flex-column"
+      >
+        <span class="title d-flex justify-content-start">ENGAGE</span>
+        <span class="strategie-description"
+          >At Inland, we use various platforms and communication methods, like
+          emails, phone calls, and LinkedIn outreach, to maximize opportunities
+          and boost engagement.</span
+        >
+      </div>
+    </div>
+    <div
+      class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center"
+      [ngStyle]="screenWidth <= 768 ? { 'margin-top': '20px' } : {}"
+    >
+      <div class="col-1 d-flex align-items-center flex-column">
+        <div class="outer-circle">
+          <div class="inner-circle"></div>
+          <div class="vertical-line"></div>
+        </div>
+      </div>
+      <div
+        pAnimateOnScroll
+        enterClass="fadeInrightStrategie"
+        leaveClass=""
+        class="col d-flex flex-column"
+      >
+        <span class="title d-flex justify-content-start">NURTURE</span>
+        <span class="strategie-description"
+          >Inland emphasizes long-term relationship building with targeted
+          accounts through regular communication, valuable content, and timely
+          follow-ups, enhancing the chances of successful collaborations.</span
+        >
+      </div>
+    </div>
+    <div
+      class="col-md-4 col-sm-12 col-lg-4 d-flex justify-content-center"
+      [ngStyle]="screenWidth <= 768 ? { 'margin-top': '20px' } : {}"
+    >
+      <div class="col-1 d-flex align-items-center flex-column">
+        <div class="outer-circle">
+          <div class="inner-circle"></div>
+          <div class="vertical-line"></div>
+        </div>
+      </div>
+      <div
+        pAnimateOnScroll
+        enterClass="fadeInrightStrategie"
+        leaveClass=""
+        class="col d-flex flex-column"
+      >
+        <span class="title d-flex justify-content-start">REPORT</span>
+        <span class="strategie-description">
+          Inland offers regular performance reviews tailored to your team's
+          needs, providing insights into activities, achievements, and areas for
+          improvement while tracking ROI.</span
+        >
       </div>
     </div>
   </div>
@@ -527,7 +480,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center">
-        <h1 class="partners-title">They trust us</h1>
+        <h1 class="partners-title text-uppercase">They trust us</h1>
       </div>
       <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center">
         <p-carousel
@@ -535,7 +488,7 @@
           [showIndicators]="false"
           [numVisible]="7"
           [numScroll]="1"
-          [autoplayInterval]="3000"
+          [autoplayInterval]="2000"
           class="container"
         >
           <ng-template let-partner pTemplate="item">
@@ -553,7 +506,7 @@
     </div>
   </div>
 </div>
-<div class="container contact-container">
+<!-- <div class="container contact-container">
   <div class="row">
     <div
       class="col-md-6 col-sm-12 col-lg-6 my-lg-4 my-md-2 my-sm-2 d-flex justify-content-center"
@@ -601,7 +554,7 @@
               position: absolute;
               top: -100px;
               left: 65%;
-              width: 70%;
+              width: 270px;
               height: 60%;
             "
             src="assets/img/question.png"
@@ -611,4 +564,41 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+<!-- <div class="col-md-12 col-sm-12 col-lg-10" style="margin: 6rem 0">
+  <div
+    class="row"
+    [ngStyle]="
+      screenWidth > 768 ? { 'margin-top': '80px' } : { 'margin-top': '92px' }
+    "
+  >
+    <div
+      class="conteudo__geral d-flex justify-content-center align-items-center"
+    >
+      <div class="container-car">
+        <div class="container-carrossel">
+          <div class="carrossel">
+            <div
+              class="carrossel-item"
+              *ngFor="let item of carouselItems"
+              [ngStyle]="{
+                'background-image': 'url(' + item.image + ')',
+              }"
+            >
+              <div class="item-overlay">
+                <h3 class="item-title">{{ item.title }}</h3>
+                <p class="item-description">{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--     [ngStyle]="{
+              background:
+                'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),url(' +
+                item.image +
+                ')',
+            }" -->

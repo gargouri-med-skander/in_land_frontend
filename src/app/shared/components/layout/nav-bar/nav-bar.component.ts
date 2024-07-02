@@ -10,8 +10,10 @@ import { SectionService } from 'src/app/shared/services/section-service.service'
 })
 export class NavBarComponent implements OnInit, OnDestroy {
   isScrolled = false;
-  logoSrc = 'assets/img/logo.png';
+  logoSrc = 'assets/img/part-logo.png';
   isBlack = true;
+  isHidden = false;
+  lastScrollTop = 0;
   private sectionSubscription!: Subscription;
 
   constructor(
@@ -22,16 +24,29 @@ export class NavBarComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
+    const currentScrollTop =
+      window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScrollTop > this.lastScrollTop) {
+      // Scrolling down
+      this.isHidden = true;
+    } else {
+      // Scrolling up
+      this.isHidden = false;
+    }
+
+    this.isScrolled = currentScrollTop > 10;
+    this.lastScrollTop = currentScrollTop;
   }
 
   ngOnInit() {
     this.sectionSubscription = this.sectionService.currentSection$.subscribe(
       section => {
         if (section !== 'default') {
-          this.logoSrc = 'assets/img/logo-white-nav.png';
+          this.logoSrc = 'assets/img/part-logo-white.png';
           this.isBlack = false;
         } else {
-          this.logoSrc = 'assets/img/logo.png';
+          this.logoSrc = 'assets/img/part-logo.png';
           this.isBlack = true;
         }
       }
@@ -45,6 +60,33 @@ export class NavBarComponent implements OnInit, OnDestroy {
   }
 
   isActive(link: string): boolean {
-    return this.router.isActive(link, false); // Check if the current URL exactly matches the link
+    return this.router.isActive(link, false);
+  }
+
+  selectedFlag = 'https://media.flaticon.com/dist/min/img/flags/en.svg';
+  dropdownOpen = false;
+
+  flags = [
+    {
+      url: 'https://media.flaticon.com/dist/min/img/flags/en.svg',
+      name: 'English',
+    },
+    {
+      url: 'https://media.flaticon.com/dist/min/img/flags/de.svg',
+      name: 'German',
+    },
+  ];
+
+  toggleDropdown() {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  selectFlag(flagUrl: string) {
+    this.selectedFlag = flagUrl;
+    this.dropdownOpen = false;
+  }
+
+  getFilteredFlags() {
+    return this.flags.filter(flag => flag.url !== this.selectedFlag);
   }
 }

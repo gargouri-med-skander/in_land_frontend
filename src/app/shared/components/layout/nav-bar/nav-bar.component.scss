@@ -1,38 +1,86 @@
-.booking-button {
-  background: linear-gradient(30.51deg, #194049 14.08%, #000000 100.58%);
-  color: #fff;
-  font-size: 19px;
-  padding: 15px 20px;
-  border-radius: 9px;
-  text-decoration: none;
-  transition: 0.3s background-color;
-  height: 60px;
-  width: 180px;
-  text-align: center;
-  font-weight: 400;
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 58px;
+}
+.arrow {
+  font-size: 25px;
+  margin-left: 3px;
+}
+.custom-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1px 4px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
 }
 
-.booking-button:hover {
-  color: #87ceeb;
-  font-weight: 500;
+.selected-flag {
+  width: 25px;
+  height: 25px;
+  margin-left: 3px;
+}
+
+.custom-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 10;
+}
+
+.custom-options.show {
+  display: block;
+}
+
+.custom-option {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.custom-option img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.custom-option:hover {
+  background-color: #f0f0f0;
 }
 
 .navbar {
-  backdrop-filter: blur(10px);
+  background: transparent;
   height: 100px;
   padding: 0.5rem;
   transition:
     height 0.3s ease,
-    padding 0.3s ease;
+    padding 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navbar:hover {
+  background: #fff !important;
 }
 
 .navbar.scrolled {
   height: 80px;
-  padding: 0.25rem;
+  background: #fff !important;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 .navbar-brand {
-  height: 80px;
+  height: 95px;
+  width: 105px;
 }
 
 .navbar-toggler {
@@ -47,16 +95,23 @@
 }
 
 .nav-link {
-  color: #000;
-  font-weight: 500;
+  color: #524f4f;
+  font-weight: 400;
   position: relative;
+  font-size: 16px;
 }
 
 .nav-link:hover,
 .nav-link.active {
-  color: #87ceeb !important;
+  color: #fe7773 !important;
+  font-weight: 400;
 }
 
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1370px;
+  }
+}
 @media (min-width: 991px) {
   .nav-link::before {
     content: '';
@@ -66,7 +121,7 @@
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background-color: #87ceeb;
+    background-color: #fe7773;
     visibility: hidden;
     transition: 0.3s ease-in-out;
   }

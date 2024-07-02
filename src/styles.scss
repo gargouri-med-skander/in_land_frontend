@@ -20,3 +20,10 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: #000;
 } */
+@font-face {
+  font-family: 'CarosSoft';
+  src: local('CarosSoft'), url(./assets/fonts/CarosSoft.otf);
+}
+* {
+  font-family: 'CarosSoft', sans-serif;
+}

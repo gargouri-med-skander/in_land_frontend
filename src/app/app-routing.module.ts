@@ -6,7 +6,7 @@ import { BaseLayoutComponent } from './public/components/base-layout/base-layout
 const routes: Routes = [
   {
     path: '',
-    redirectTo: APP_ROUTES.HOME,
+    redirectTo: '',
     pathMatch: 'full',
   },
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
     component: BaseLayoutComponent,
     children: [
       {
-        path: APP_ROUTES.HOME,
+        path: '',
         loadChildren: () =>
           import('./public/components/home/home.module').then(
             m => m.HomeModule
@@ -27,11 +27,39 @@ const routes: Routes = [
             m => m.BenefitsModule
           ),
       },
+      {
+        path: APP_ROUTES.SERVICES,
+        loadChildren: () =>
+          import('./public/components/services/services.module').then(
+            m => m.ServicesModule
+          ),
+      },
+      {
+        path: APP_ROUTES.MARKETS,
+        loadChildren: () =>
+          import('./public/components/markets/markets.module').then(
+            m => m.MarketsModule
+          ),
+      },
+      {
+        path: APP_ROUTES.INDUSTRIES,
+        loadChildren: () =>
+          import('./public/components/industries/industries.module').then(
+            m => m.IndustriesModule
+          ),
+      },
+      {
+        path: APP_ROUTES.ABOUT_US,
+        loadChildren: () =>
+          import('./public/components/about-us/about-us.module').then(
+            m => m.AboutUsModule
+          ),
+      },
     ],
   },
   {
     path: '**',
-    redirectTo: APP_ROUTES.HOME,
+    redirectTo: '',
     pathMatch: 'full',
   },
 ];
