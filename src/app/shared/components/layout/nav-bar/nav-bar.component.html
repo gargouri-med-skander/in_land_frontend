@@ -24,7 +24,7 @@
         <img
           class="offcanvas-title"
           src="assets/img/part-logo.png"
-          style="height: 47px; width: 120px"
+          style="height: 90px; width: 100px"
         />
         <button
           type="button"
@@ -35,50 +35,279 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-          <li class="nav-item">
+          <li
+            class="nav-item"
+            (mouseenter)="onMouseEnter('services')"
+            (mouseleave)="onMouseLeave('services')"
+          >
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
               routerLink="services"
               [class.active]="isActive('services')"
-              >Services</a
-            >
+              >Services
+              <span
+                class="bi bi-caret-down-fill"
+                [ngClass]="{
+                  'bi bi-caret-right-fill mx-2': screenWidth <= 991,
+                }"
+                [ngStyle]="screenWidth <= 991 ? { color: '#fe7773' } : {}"
+              ></span>
+            </a>
+            <div class="service-menu" [ngClass]="{ show: isServiceVisible }">
+              <div
+                class="sub-title d-flex align-items-center"
+                style="color: #fe7773; cursor: pointer"
+                routerLink="services"
+              >
+                <h4><strong>Services</strong> | View All</h4>
+                <span class="bi bi-caret-right-fill mx-2"></span>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="row">
+                <div class="sub-link col-6 my-lg-2">
+                  Outbound Lead Generation
+                </div>
+                <div class="sub-link col-6 my-lg-2">
+                  Account-based Marketing
+                </div>
+                <div class="sub-link col-6 my-lg-2">
+                  Inbound Sales Development
+                </div>
+                <div class="sub-link col-6 my-lg-2">
+                  B2B Sales & Marketing Consultancy
+                </div>
+                <div class="sub-link col-6 my-lg-2">
+                  Referral and Affiliate Marketing
+                </div>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
+          <li
+            class="nav-item"
+            (mouseenter)="onMouseEnter('markets')"
+            (mouseleave)="onMouseLeave('markets')"
+          >
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
               routerLink="markets"
               [class.active]="isActive('markets')"
-              >Markets</a
-            >
+              >Markets
+              <span
+                class="bi bi-caret-down-fill"
+                [ngClass]="{
+                  'bi bi-caret-right-fill mx-2': screenWidth <= 991,
+                }"
+                [ngStyle]="screenWidth <= 991 ? { color: '#fe7773' } : {}"
+              ></span>
+            </a>
+            <div class="market-menu" [ngClass]="{ show: isMarketVisible }">
+              <div class="d-flex align-items-center" style="color: #fe7773">
+                <h4><strong>Global Coverage</strong></h4>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="d-flex justify-content-around">
+                <div>
+                  <div
+                    class="sub-link my-lg-2"
+                    (mouseenter)="onMouseMarket('europe')"
+                    (mouseleave)="onMouseMarketLeave()"
+                  >
+                    Europe
+                  </div>
+                  <div
+                    class="sub-link my-lg-2"
+                    (mouseenter)="onMouseMarket('MEA')"
+                    (mouseleave)="onMouseMarketLeave()"
+                  >
+                    MEA
+                  </div>
+                  <div
+                    class="sub-link my-lg-2"
+                    (mouseenter)="onMouseMarket('Asia-Pacific')"
+                    (mouseleave)="onMouseMarketLeave()"
+                  >
+                    Asia-Pacific
+                  </div>
+                  <div
+                    class="sub-link my-lg-2"
+                    (mouseenter)="onMouseMarket('North America')"
+                    (mouseleave)="onMouseMarketLeave()"
+                  >
+                    North America
+                  </div>
+                  <div
+                    class="sub-link my-lg-2"
+                    (mouseenter)="onMouseMarket('Latin America')"
+                    (mouseleave)="onMouseMarketLeave()"
+                  >
+                    Latin America
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <div>
+                    <img
+                      [src]="worldMapSrc"
+                      style="height: 210px; width: auto"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
+          <li
+            class="nav-item"
+            (mouseenter)="onMouseEnter('industries')"
+            (mouseleave)="onMouseLeave('industries')"
+          >
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
               routerLink="industries"
               [class.active]="isActive('industries')"
-              >Industries</a
+              >Industries
+              <span
+                class="bi bi-caret-down-fill"
+                [ngClass]="{
+                  'bi bi-caret-right-fill mx-2': screenWidth <= 991,
+                }"
+                [ngStyle]="screenWidth <= 991 ? { color: '#fe7773' } : {}"
+              ></span>
+            </a>
+            <div
+              class="industrie-menu"
+              [ngClass]="{ show: isIndustrieVisible }"
             >
+              <div
+                class="sub-title d-flex align-items-center"
+                style="color: #fe7773; cursor: pointer"
+              >
+                <h4><strong>IT Sector</strong> | View All</h4>
+                <span class="bi bi-caret-right-fill mx-2"></span>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="row">
+                <div class="sub-link col-4 my-lg-2">Software Development</div>
+                <div class="sub-link col-4 my-lg-2">Hardware Manufacturing</div>
+                <div class="sub-link col-4 my-lg-2">Telecommunications</div>
+                <div class="sub-link col-4 my-lg-2">Cybersecurity</div>
+                <div class="sub-link col-4 my-lg-2">Fintech</div>
+                <div class="sub-link col-4 my-lg-2">Cloud Computing</div>
+                <div class="sub-link col-4 my-lg-2">E-commerce</div>
+                <div class="sub-link col-4 my-lg-2">
+                  IT Consulting and Services
+                </div>
+                <div class="sub-link col-4 my-lg-2">
+                  Logistics and Supply Chain IT Solutions
+                </div>
+              </div>
+              <div
+                class="sub-title d-flex align-items-center"
+                style="color: #fe7773; cursor: pointer"
+              >
+                <h4><strong>Industrial Sector</strong> | View All</h4>
+                <span class="bi bi-caret-right-fill mx-2"></span>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="row">
+                <div class="sub-link col-6 my-lg-2">Manufacturing</div>
+                <div class="sub-link col-6 my-lg-2">Automotive</div>
+                <div class="sub-link col-6 my-lg-2">Machinery</div>
+                <div class="sub-link col-6 my-lg-2">Aerospace</div>
+                <div class="sub-link col-6 my-lg-2">
+                  Logistics and Supply Chain
+                </div>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
+          <li
+            class="nav-item"
+            (mouseenter)="onMouseEnter('benefits')"
+            (mouseleave)="onMouseLeave('benefits')"
+          >
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
               routerLink="benefits"
               [class.active]="isActive('benefits')"
-              >Benefits</a
-            >
+              >Benefits
+              <span
+                class="bi bi-caret-down-fill"
+                [ngClass]="{
+                  'bi bi-caret-right-fill mx-2': screenWidth <= 991,
+                }"
+                [ngStyle]="screenWidth <= 991 ? { color: '#fe7773' } : {}"
+              ></span>
+            </a>
+            <div class="benefit-menu" [ngClass]="{ show: isBenefitVisible }">
+              <div
+                class="sub-title d-flex align-items-center"
+                style="color: #fe7773; cursor: pointer"
+              >
+                <h4><strong>Benefits</strong> | View All</h4>
+                <span class="bi bi-caret-right-fill mx-2"></span>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="row">
+                <div class="sub-link col-6 my-lg-2">
+                  Save on time and expenses
+                </div>
+                <div class="sub-link col-6 my-lg-2">Experienced Team</div>
+                <div class="sub-link col-6 my-lg-2">
+                  Specialised members with
+                </div>
+                <div class="sub-link col-6 my-lg-2">Industry Knowledge</div>
+                <div class="sub-link col-7 my-lg-2">
+                  Market knowledge: Local Know How
+                </div>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
+          <li
+            class="nav-item"
+            (mouseenter)="onMouseEnter('about-us')"
+            (mouseleave)="onMouseLeave('about-us')"
+          >
             <a
               [ngStyle]="{ color: isBlack ? '#000' : '#fff' }"
               class="nav-link mx-lg-2"
               routerLink="about-us"
               [class.active]="isActive('about-us')"
-              >About us</a
-            >
+              >About us
+              <span
+                class="bi bi-caret-down-fill"
+                [ngClass]="{
+                  'bi bi-caret-right-fill mx-2': screenWidth <= 991,
+                }"
+                [ngStyle]="screenWidth <= 991 ? { color: '#fe7773' } : {}"
+              ></span>
+            </a>
+            <div class="about-us-menu" [ngClass]="{ show: isAboutUsVisible }">
+              <div class="d-flex align-items-center" style="color: #fe7773">
+                <h4><strong>Approach and Methodology</strong></h4>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="row">
+                <div class="sub-link col-6 my-lg-2">Vision & Mission</div>
+                <div class="sub-link col-6 my-lg-2">Values</div>
+                <div class="sub-link col-6 my-lg-2">Client-Centric Focus</div>
+                <div class="sub-link col-6 my-lg-2">Experience</div>
+              </div>
+              <div
+                class="d-flex align-items-center my-2"
+                style="color: #fe7773"
+              >
+                <h4><strong>Culture and Values</strong></h4>
+              </div>
+              <div class="vertical-line"></div>
+              <div class="row">
+                <div class="sub-link col-6 my-lg-2">Commitment to Quality</div>
+                <div class="sub-link col-6 my-lg-2">The Team</div>
+                <div class="sub-link col-6 my-lg-2">Ethics</div>
+                <div class="sub-link col-6 my-lg-2">Testemonials</div>
+              </div>
+            </div>
           </li>
         </ul>
       </div>

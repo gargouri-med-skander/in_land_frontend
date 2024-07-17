@@ -1,0 +1,13 @@
+.service-container {
+  height: calc(100vh - 170px);
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  background: linear-gradient(
+    189.51deg,
+    rgb(209, 112, 112) 20.08%,
+    #ffff 104.58%
+  );
+  overflow: hidden;
+  padding-top: 16rem;
+}

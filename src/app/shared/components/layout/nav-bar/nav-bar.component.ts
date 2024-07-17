@@ -8,18 +8,24 @@ import { SectionService } from 'src/app/shared/services/section-service.service'
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss'],
 })
-export class NavBarComponent implements OnInit, OnDestroy {
+export class NavBarComponent implements OnInit {
+  screenWidth!: number;
   isScrolled = false;
   logoSrc = 'assets/img/part-logo.png';
   isBlack = true;
   isHidden = false;
   lastScrollTop = 0;
-  private sectionSubscription!: Subscription;
+  isServiceVisible = false;
+  isMarketVisible = false;
+  isIndustrieVisible = false;
+  isBenefitVisible = false;
+  isAboutUsVisible = false;
+  worldMapSrc = 'assets/img/markets/market.png';
+  constructor(private router: Router) {}
 
-  constructor(
-    private sectionService: SectionService,
-    private router: Router
-  ) {}
+  ngOnInit(): void {
+    this.onResize(null);
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -39,40 +45,20 @@ export class NavBarComponent implements OnInit, OnDestroy {
     this.lastScrollTop = currentScrollTop;
   }
 
-  ngOnInit() {
-    this.sectionSubscription = this.sectionService.currentSection$.subscribe(
-      section => {
-        if (section !== 'default') {
-          this.logoSrc = 'assets/img/part-logo-white.png';
-          this.isBlack = false;
-        } else {
-          this.logoSrc = 'assets/img/part-logo.png';
-          this.isBlack = true;
-        }
-      }
-    );
-  }
-
-  ngOnDestroy() {
-    if (this.sectionSubscription) {
-      this.sectionSubscription.unsubscribe();
-    }
-  }
-
   isActive(link: string): boolean {
     return this.router.isActive(link, false);
   }
 
-  selectedFlag = 'https://media.flaticon.com/dist/min/img/flags/en.svg';
+  selectedFlag = 'assets/SVG/flag-for-flag-united-kingdom-svgrepo-com.svg';
   dropdownOpen = false;
 
   flags = [
     {
-      url: 'https://media.flaticon.com/dist/min/img/flags/en.svg',
+      url: 'assets/SVG/flag-for-flag-united-kingdom-svgrepo-com.svg',
       name: 'English',
     },
     {
-      url: 'https://media.flaticon.com/dist/min/img/flags/de.svg',
+      url: 'assets/SVG/flag-for-flag-germany-svgrepo-com.svg',
       name: 'German',
     },
   ];
@@ -88,5 +74,69 @@ export class NavBarComponent implements OnInit, OnDestroy {
 
   getFilteredFlags() {
     return this.flags.filter(flag => flag.url !== this.selectedFlag);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth =
+      event != null ? event.target.innerWidth : window.innerWidth;
+  }
+
+  onMouseEnter(link: string) {
+    if (link === 'services') {
+      this.isServiceVisible = true;
+    }
+    if (link === 'markets') {
+      this.isMarketVisible = true;
+    }
+    if (link === 'industries') {
+      this.isIndustrieVisible = true;
+    }
+    if (link === 'benefits') {
+      this.isBenefitVisible = true;
+    }
+    if (link === 'about-us') {
+      this.isAboutUsVisible = true;
+    }
+  }
+
+  onMouseLeave(link: string) {
+    if (link === 'services') {
+      this.isServiceVisible = false;
+    }
+    if (link === 'markets') {
+      this.isMarketVisible = false;
+    }
+    if (link === 'industries') {
+      this.isIndustrieVisible = false;
+    }
+    if (link === 'benefits') {
+      this.isBenefitVisible = false;
+    }
+    if (link === 'about-us') {
+      this.isAboutUsVisible = false;
+    }
+  }
+
+  onMouseMarket(market: string) {
+    if (market === 'europe') {
+      this.worldMapSrc = 'assets/img/markets/europe-market.png';
+    }
+    if (market === 'MEA') {
+      this.worldMapSrc = 'assets/img/markets/MEA-market.png';
+    }
+    if (market === 'Asia-Pacific') {
+      this.worldMapSrc = 'assets/img/markets/asia-pacific-market.png';
+    }
+    if (market === 'North America') {
+      this.worldMapSrc = 'assets/img/markets/north-america-market.png';
+    }
+    if (market === 'Latin America') {
+      this.worldMapSrc = 'assets/img/markets/latin-america-market.png';
+    }
+  }
+
+  onMouseMarketLeave() {
+    this.worldMapSrc = 'assets/img/markets/market.png';
   }
 }

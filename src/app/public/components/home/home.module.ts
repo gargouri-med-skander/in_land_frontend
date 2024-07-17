@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CarouselModule } from 'primeng/carousel';
+import { TabViewModule } from 'primeng/tabview';
 @NgModule({
   declarations: [HomeComponent],
   imports: [
@@ -13,6 +14,7 @@ import { CarouselModule } from 'primeng/carousel';
     AnimateOnScrollModule,
     SharedModule,
     CarouselModule,
+    TabViewModule,
   ],
 })
 export class HomeModule {}

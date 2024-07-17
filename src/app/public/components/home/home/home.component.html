@@ -1,43 +1,67 @@
 <div class="fixed-button">
-  <button class="text-uppercase" style="width: 210px">Book a meeting</button>
+  <button class="text-uppercase">
+    Book a meeting <span class="arrow"> </span>
+  </button>
 </div>
-<div
-  id="home-container"
-  class="home-container d-flex justify-content-center flex-column"
->
-  <div class="overlay"></div>
+<div id="home-container" class="home-container">
+  <video
+    class="back-video"
+    [muted]="isMuted"
+    loop
+    autoplay
+    [src]="videoSrc"
+  ></video>
   <div class="container">
-    <div class="row">
-      <div
-        class="col-md-12 col-sm-12 col-lg-6 flex-column"
-        [ngStyle]="screenWidth <= 768 ? { 'margin-top': '0px' } : {}"
-      >
-        <div>
-          <h1 class="first-title">MASTER YOUR MARKET,</h1>
-          <h1 class="second-title">ACCELERATE YOUR GROWTH.</h1>
-        </div>
-        <div class="my-4">
+    <div class="d-flex justify-content-center">
+      <div class="row">
+        <div
+          class="col-md-12 col-sm-12 col-lg-12"
+          [ngStyle]="screenWidth <= 768 ? { 'margin-top': '0px' } : {}"
+        >
+          <h1 class="first-title">
+            MASTER YOUR MARKET, ACCELERATE YOUR GROWTH.
+          </h1>
+          <div class="d-flex justify-align-items-center">
+            <div style="width: 195px">
+              <button class="btn">
+                Get a Quote
+                <span class="arrow"> </span>
+              </button>
+            </div>
+            <div style="width: 195px">
+              <button class="btn-2">
+                Learn more
+                <span class="arrow"> </span>
+              </button>
+            </div>
+            <button class="btn-mute mx-1" (click)="isMuted = !isMuted">
+              <span
+                [ngClass]="{
+                  'bi bi-volume-mute-fill': isMuted,
+                  'bi bi-volume-up-fill': !isMuted,
+                }"
+              ></span>
+            </button>
+          </div>
+          <!--    <div class="my-4">
           <p class="description">
             We help businesses growing their sales pipeline and confidently
             guide them into new territories.
           </p>
-        </div>
-        <div>
-          <button class="btn">Get a Quote</button>
-          <button
-            class="btn mx-2"
-            style="
-              background: rgb(255, 255, 255);
-              z-index: 2;
-              color: #194049;
-              border: 1px solid #194049;
-            "
-          >
-            Learn more
+        </div> -->
+          <!--     <div class="d-flex justify-align-items-center">
+          <button class="btn">
+            Get a Quote
+            <span class="arrow"> </span>
           </button>
+          <button class="btn-2 mx-2">
+            Learn more
+            <span class="arrow"> </span>
+          </button>
+        </div> -->
         </div>
       </div>
-      <div
+      <!--   <div
         class="col-md-12 col-sm-12 col-lg-6 d-flex align-items-center justify-content-center"
       >
         <div class="support" style="margin-top: 50px">
@@ -84,8 +108,8 @@
             Native languages
           </div>
         </div>
-      </div>
-      <div class="col-md-9 col-sm-9 col-lg-9 my-5">
+      </div> -->
+      <!--   <div class="col-md-9 col-sm-9 col-lg-9 my-5">
         <div class="d-flex justify-content-center flex-column">
           <div class="horizontal-bar my-4"></div>
           <div>
@@ -104,17 +128,16 @@
             </p>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
-
 <div
   class="animation-container"
   (window:scroll)="onScroll()"
   style="overflow: hidden; height: auto"
 >
-  <div class="row" style="margin-top: 20px">
+  <div class="row" style="margin-top: 5px">
     <div
       class="col-12 d-flex align-items-center justify-content-center"
       style="position: relative"
@@ -144,7 +167,6 @@
       />
     </div>
   </div>
-
   <div class="row">
     <div class="challenge-container">
       <div class="container-fluid">
@@ -152,27 +174,625 @@
           <div class="col-6">
             <div class="earth">
               <img class="map-img" src="assets/img/map.png" />
+              <div class="support">
+                <div class="first-block">
+                  +<span style="color: #fe7773; font-weight: 600">€</span
+                  ><span
+                    [innerText]="salesPipeline"
+                    style="color: #fe7773; font-weight: 600"
+                    >0</span
+                  >
+                  million Sales Pipeline
+                </div>
+                <div class="second-block">
+                  +<span
+                    [innerText]="meetings"
+                    style="color: #fe7773; font-weight: 600"
+                    >0</span
+                  >
+                  Qualified Meeting
+                </div>
+                <div class="third-block">
+                  +<span style="color: #fe7773; font-weight: 600">€</span
+                  ><span
+                    [innerText]="clientRevenue"
+                    style="color: #fe7773; font-weight: 600"
+                    >0</span
+                  >
+                  million New Client Revenue
+                </div>
+                <div class="fourth-block">
+                  +<span
+                    [innerText]="markets"
+                    style="color: #fe7773; font-weight: 600"
+                    >0</span
+                  >
+                  Markets Covered
+                </div>
+                <div class="fifth-block">
+                  +<span
+                    [innerText]="languages"
+                    style="color: #fe7773; font-weight: 600"
+                    >0</span
+                  >
+                  Native languages
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-5 d-flex flex-column justify-content-center">
             <div
-              class="my-2 d-flex flex-column justify-content-start"
+              class="d-flex flex-column justify-content-start"
               style="position: relative"
             ></div>
             <div>
               <p class="challenge-text">
-                At Inland, we leverage our expertise in B2B lead generation to
-                address diverse business challenges across various markets and
-                industries. Our tailored solutions, from strategic planning to
-                execution, consistently deliver measurable results that drive
-                substantial growth for your business.
+                At Inland, we leverage B2B lead generation expertise to solve
+                diverse business challenges. Our tailored solutions, from
+                strategic planning to execution, consistently deliver measurable
+                growth.
               </p>
             </div>
             <div class="d-flex justify-content-start">
-              <button class="btn">Learn more</button>
+              <button class="btn">
+                Learn more <span class="arrow"> </span>
+              </button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="nav-container">
+  <div class="container">
+    <div
+      class="card"
+      style="
+        padding: 35px 20px;
+        border-radius: 9px;
+        background: linear-gradient(30.51deg, #dbe0e2 14.08%, #e9dfdf 100.58%);
+      "
+    >
+      <div
+        class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-between align-items-center"
+      >
+        <h1 class="text-uppercase" style="color: #194049; font-weight: 600">
+          Proven growth architects
+        </h1>
+        <div class="d-flex align-items-center">
+          <span class="mx-2">Check out our success stories</span>
+          <button class="btn-arrow">
+            <span class="arrow"> </span>
+          </button>
+        </div>
+      </div>
+      <div
+        style="padding: 0.5em 0 1em 0; margin-top: 20px"
+        class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center"
+      >
+        <button
+          (click)="activeIndex = 0"
+          style="animation: none"
+          [ngClass]="{
+            'btn-2': activeIndex !== 0,
+            'btn-selected': activeIndex === 0,
+          }"
+          label="Activate 1st"
+        >
+          <span>B2B</span>
+        </button>
+        <button
+          (click)="activeIndex = 1"
+          style="animation: none"
+          [ngClass]="{
+            'btn-2': activeIndex !== 1,
+            'btn-selected': activeIndex === 1,
+          }"
+          label="Activate 2nd"
+        >
+          <span>All Cases</span>
+        </button>
+        <button
+          (click)="activeIndex = 2"
+          style="animation: none"
+          [ngClass]="{
+            'btn-2': activeIndex !== 2,
+            'btn-selected': activeIndex === 2,
+          }"
+          label="Activate 3rd"
+        >
+          <span>Web3</span>
+        </button>
+        <button
+          (click)="activeIndex = 3"
+          style="animation: none"
+          [ngClass]="{
+            'btn-2': activeIndex !== 3,
+            'btn-selected': activeIndex === 3,
+          }"
+          label="Activate 4st"
+        >
+          <span>Fintech</span>
+        </button>
+        <button
+          (click)="activeIndex = 4"
+          style="animation: none"
+          [ngClass]="{
+            'btn-2': activeIndex !== 4,
+            'btn-selected': activeIndex === 4,
+          }"
+          label="Activate 2nd"
+        >
+          <span>B2C</span>
+        </button>
+        <button
+          (click)="activeIndex = 5"
+          style="animation: none"
+          [ngClass]="{
+            'btn-2': activeIndex !== 5,
+            'btn-selected': activeIndex === 5,
+          }"
+          label="Activate 3rd"
+        >
+          <span>Ecommerce</span>
+        </button>
+        <button
+          (click)="activeIndex = 6"
+          style="animation: none"
+          [ngClass]="{
+            'btn-2': activeIndex !== 6,
+            'btn-selected': activeIndex === 6,
+          }"
+          label="Activate 1st"
+        >
+          <span>SaaS</span>
+        </button>
+        <button
+          (click)="activeIndex = 7"
+          style="animation: none"
+          [ngClass]="{
+            'btn-2': activeIndex !== 7,
+            'btn-selected': activeIndex === 7,
+          }"
+          label="Activate 2nd"
+        >
+          <span>Healthcare</span>
+        </button>
+      </div>
+      <p-tabView [(activeIndex)]="activeIndex">
+        <p-tabPanel>
+          <div class="panel d-flex">
+            <button
+              class="btn-prev"
+              (click)="updateIndex(B2Bindex - 1)"
+              *ngIf="B2Bindex > 0"
+            >
+              <span class="bi bi-arrow-left-short"></span>
+            </button>
+            <button
+              *ngIf="B2Bindex <= B2B.length - 2"
+              class="btn-next"
+              (click)="updateIndex(B2Bindex + 1)"
+            >
+              <span class="bi bi-arrow-right-short"></span>
+            </button>
+            <div
+              *ngIf="B2Bindex >= 0 && B2Bindex < B2B.length"
+              [@slideInOut]="animationState"
+              class="panel-content"
+            >
+              <div
+                class="panel-img"
+                [ngStyle]="{
+                  'background-image': 'url(' + B2B[B2Bindex].image + ')',
+                }"
+              ></div>
+              <div class="panel-details">
+                <div class="panel-title">{{ B2B[B2Bindex].title }}</div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 1</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 2</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 3</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="col-12 d-flex justify-content-start">
+                  <button class="btn-2 my-4">
+                    Learn more <span class="arrow"> </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel>
+          <div class="panel d-flex">
+            <button
+              class="btn-prev"
+              (click)="updateIndex(B2Bindex - 1)"
+              *ngIf="B2Bindex > 0"
+            >
+              <span class="bi bi-arrow-left-short"></span>
+            </button>
+            <button
+              *ngIf="B2Bindex <= B2B.length - 2"
+              class="btn-next"
+              (click)="updateIndex(B2Bindex + 1)"
+            >
+              <span class="bi bi-arrow-right-short"></span>
+            </button>
+            <div
+              *ngIf="B2Bindex >= 0 && B2Bindex < B2B.length"
+              [@slideInOut]="animationState"
+              class="panel-content"
+            >
+              <div
+                class="panel-img"
+                [ngStyle]="{
+                  'background-image': 'url(' + B2B[B2Bindex].image + ')',
+                }"
+              ></div>
+              <div class="panel-details">
+                <div class="panel-title">{{ B2B[B2Bindex].title }}</div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 1</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 2</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 3</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="col-12 d-flex justify-content-start">
+                  <button class="btn-2 my-4">
+                    Learn more <span class="arrow"> </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel>
+          <div class="panel d-flex">
+            <button
+              class="btn-prev"
+              (click)="updateIndex(B2Bindex - 1)"
+              *ngIf="B2Bindex > 0"
+            >
+              <span class="bi bi-arrow-left-short"></span>
+            </button>
+            <button
+              *ngIf="B2Bindex <= B2B.length - 2"
+              class="btn-next"
+              (click)="updateIndex(B2Bindex + 1)"
+            >
+              <span class="bi bi-arrow-right-short"></span>
+            </button>
+            <div
+              *ngIf="B2Bindex >= 0 && B2Bindex < B2B.length"
+              [@slideInOut]="animationState"
+              class="panel-content"
+            >
+              <div
+                class="panel-img"
+                [ngStyle]="{
+                  'background-image': 'url(' + B2B[B2Bindex].image + ')',
+                }"
+              ></div>
+              <div class="panel-details">
+                <div class="panel-title">{{ B2B[B2Bindex].title }}</div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 1</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 2</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 3</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="col-12 d-flex justify-content-start">
+                  <button class="btn-2 my-4">
+                    Learn more <span class="arrow"> </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel>
+          <div class="panel d-flex">
+            <button
+              class="btn-prev"
+              (click)="updateIndex(B2Bindex - 1)"
+              *ngIf="B2Bindex > 0"
+            >
+              <span class="bi bi-arrow-left-short"></span>
+            </button>
+            <button
+              *ngIf="B2Bindex <= B2B.length - 2"
+              class="btn-next"
+              (click)="updateIndex(B2Bindex + 1)"
+            >
+              <span class="bi bi-arrow-right-short"></span>
+            </button>
+            <div
+              *ngIf="B2Bindex >= 0 && B2Bindex < B2B.length"
+              [@slideInOut]="animationState"
+              class="panel-content"
+            >
+              <div
+                class="panel-img"
+                [ngStyle]="{
+                  'background-image': 'url(' + B2B[B2Bindex].image + ')',
+                }"
+              ></div>
+              <div class="panel-details">
+                <div class="panel-title">{{ B2B[B2Bindex].title }}</div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 1</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 2</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 3</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="col-12 d-flex justify-content-start">
+                  <button class="btn-2 my-4">
+                    Learn more <span class="arrow"> </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel>
+          <div class="panel d-flex">
+            <button
+              class="btn-prev"
+              (click)="updateIndex(B2Bindex - 1)"
+              *ngIf="B2Bindex > 0"
+            >
+              <span class="bi bi-arrow-left-short"></span>
+            </button>
+            <button
+              *ngIf="B2Bindex <= B2B.length - 2"
+              class="btn-next"
+              (click)="updateIndex(B2Bindex + 1)"
+            >
+              <span class="bi bi-arrow-right-short"></span>
+            </button>
+            <div
+              *ngIf="B2Bindex >= 0 && B2Bindex < B2B.length"
+              [@slideInOut]="animationState"
+              class="panel-content"
+            >
+              <div
+                class="panel-img"
+                [ngStyle]="{
+                  'background-image': 'url(' + B2B[B2Bindex].image + ')',
+                }"
+              ></div>
+              <div class="panel-details">
+                <div class="panel-title">{{ B2B[B2Bindex].title }}</div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 1</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 2</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 3</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="col-12 d-flex justify-content-start">
+                  <button class="btn-2 my-4">
+                    Learn more <span class="arrow"> </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel>
+          <div class="panel d-flex">
+            <button
+              class="btn-prev"
+              (click)="updateIndex(B2Bindex - 1)"
+              *ngIf="B2Bindex > 0"
+            >
+              <span class="bi bi-arrow-left-short"></span>
+            </button>
+            <button
+              *ngIf="B2Bindex <= B2B.length - 2"
+              class="btn-next"
+              (click)="updateIndex(B2Bindex + 1)"
+            >
+              <span class="bi bi-arrow-right-short"></span>
+            </button>
+            <div
+              *ngIf="B2Bindex >= 0 && B2Bindex < B2B.length"
+              [@slideInOut]="animationState"
+              class="panel-content"
+            >
+              <div
+                class="panel-img"
+                [ngStyle]="{
+                  'background-image': 'url(' + B2B[B2Bindex].image + ')',
+                }"
+              ></div>
+              <div class="panel-details">
+                <div class="panel-title">{{ B2B[B2Bindex].title }}</div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 1</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 2</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 3</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="col-12 d-flex justify-content-start">
+                  <button class="btn-2 my-4">
+                    Learn more <span class="arrow"> </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel>
+          <div class="panel d-flex">
+            <button
+              class="btn-prev"
+              (click)="updateIndex(B2Bindex - 1)"
+              *ngIf="B2Bindex > 0"
+            >
+              <span class="bi bi-arrow-left-short"></span>
+            </button>
+            <button
+              *ngIf="B2Bindex <= B2B.length - 2"
+              class="btn-next"
+              (click)="updateIndex(B2Bindex + 1)"
+            >
+              <span class="bi bi-arrow-right-short"></span>
+            </button>
+            <div
+              *ngIf="B2Bindex >= 0 && B2Bindex < B2B.length"
+              [@slideInOut]="animationState"
+              class="panel-content"
+            >
+              <div
+                class="panel-img"
+                [ngStyle]="{
+                  'background-image': 'url(' + B2B[B2Bindex].image + ')',
+                }"
+              ></div>
+              <div class="panel-details">
+                <div class="panel-title">{{ B2B[B2Bindex].title }}</div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 1</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 2</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 3</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="col-12 d-flex justify-content-start">
+                  <button class="btn-2 my-4">
+                    Learn more <span class="arrow"> </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel>
+          <div class="panel d-flex">
+            <button
+              class="btn-prev"
+              (click)="updateIndex(B2Bindex - 1)"
+              *ngIf="B2Bindex > 0"
+            >
+              <span class="bi bi-arrow-left-short"></span>
+            </button>
+            <button
+              *ngIf="B2Bindex <= B2B.length - 2"
+              class="btn-next"
+              (click)="updateIndex(B2Bindex + 1)"
+            >
+              <span class="bi bi-arrow-right-short"></span>
+            </button>
+            <div
+              *ngIf="B2Bindex >= 0 && B2Bindex < B2B.length"
+              [@slideInOut]="animationState"
+              class="panel-content"
+            >
+              <div
+                class="panel-img"
+                [ngStyle]="{
+                  'background-image': 'url(' + B2B[B2Bindex].image + ')',
+                }"
+              ></div>
+              <div class="panel-details">
+                <div class="panel-title">{{ B2B[B2Bindex].title }}</div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 1</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 2</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="my-4">
+                  <div class="panel-sentences">Sample sentence 3</div>
+                  <div class="panel-description">Description goes here</div>
+                </div>
+                <div class="col-12 d-flex justify-content-start">
+                  <button class="btn-2 my-4">
+                    Learn more <span class="arrow"> </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </div>
+  </div>
+</div>
+<div id="partners-container" class="partners-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center">
+        <h1 class="partners-title text-uppercase" style="color: #194049">
+          They trust us
+        </h1>
+      </div>
+      <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center">
+        <p-carousel
+          [value]="partners"
+          [showIndicators]="false"
+          [numVisible]="7"
+          [numScroll]="1"
+          [autoplayInterval]="2000"
+          class="container"
+        >
+          <ng-template let-partner pTemplate="item">
+            <div class="text-center">
+              <img
+                style="height: 170px; width: 170px"
+                src="assets/img/{{ partner.image }}"
+                [alt]="partner.name"
+                class="w-6 shadow-2"
+              />
+            </div>
+          </ng-template>
+        </p-carousel>
       </div>
     </div>
   </div>
@@ -186,7 +806,7 @@
         leaveClass=""
         class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center my-4"
       >
-        <h1 class="service-title text-uppercase">Our services</h1>
+        <h1 class="service-title text-uppercase">DRIVING GROWTH AND SUCCESS</h1>
       </div>
       <div
         pAnimateOnScroll
@@ -195,11 +815,7 @@
         class="col-md-12 col-sm-12 col-lg-12 d-flex align-items-center justify-content-center"
       >
         <p class="service-description text-center">
-          Our B2B Marketing and Lead Generation services drive growth and
-          success for your business. We specialize in strategic marketing
-          planning, targeted lead generation campaigns, and engaging prospects
-          effectively. Our focus on measurable results and maximizing ROI helps
-          B2B companies thrive in today's competitive marketplace.
+          How we boost growth, engagement & ROI.
         </p>
       </div>
       <div class="my-2 col-md-12 col-sm-12 col-lg-12">
@@ -224,8 +840,33 @@
     </div>
   </div>
 </div>
+<div id="contact-container" class="contact-container">
+  <div>
+    <div class="d-flex justify-content-center">
+      <div class="d-flex flex-column">
+        <div style="width: 100%">
+          <h1 class="contact-first-text">Have a business project in mind?</h1>
+        </div>
+        <div
+          style="width: 100%; padding-top: 30px"
+          class="d-flex justify-content-center"
+        >
+          <h5 class="text-uppercase contact-second-text">
+            Reach out to us now!
+          </h5>
+        </div>
+        <div
+          style="width: 100%; padding-top: 30px"
+          class="d-flex justify-content-center"
+        >
+          <button class="btn-contact">TALK TO US</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="why-choose-us-container">
+<!-- <div class="why-choose-us-container">
   <div class="text-center d-flex flex-column">
     <h1
       pAnimateOnScroll
@@ -265,28 +906,6 @@
           <div class="circle-title">
             <span [ngClass]="item.icon" style="font-size: 4rem"></span>
           </div>
-          <!--           <div class="line-container">
-            <svg viewBox="0 0 200 100" class="line-svg">
-              <defs>
-                <marker
-                  id="arrowhead"
-                  markerWidth="10"
-                  markerHeight="10"
-                  refX="5"
-                  refY="5"
-                  orient="auto"
-                >
-                  <path d="M0,0 L10,5 L0,10" fill="black" />
-                </marker>
-              </defs>
-              <path
-                class="draw1"
-                d="M10 50 Q 30 20, 50 50 T 100 50"
-                stroke-width="3"
-                fill="none"
-              />
-            </svg>
-          </div> -->
           <div class="horizontal-line"></div>
         </div>
         <p
@@ -303,8 +922,8 @@
       </div>
     </div>
   </div>
-</div>
-<div id="strategie-container" class="strategie-container">
+</div> -->
+<!-- <div id="strategie-container" class="strategie-container">
   <div class="container">
     <div class="row">
       <div
@@ -475,37 +1094,8 @@
       </div>
     </div>
   </div>
-</div>
-<div id="partners-container" class="partners-container">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center">
-        <h1 class="partners-title text-uppercase">They trust us</h1>
-      </div>
-      <div class="col-md-12 col-sm-12 col-lg-12 d-flex justify-content-center">
-        <p-carousel
-          [value]="partners"
-          [showIndicators]="false"
-          [numVisible]="7"
-          [numScroll]="1"
-          [autoplayInterval]="2000"
-          class="container"
-        >
-          <ng-template let-partner pTemplate="item">
-            <div class="text-center">
-              <img
-                style="height: 170px; width: 170px"
-                src="assets/img/{{ partner.image }}"
-                [alt]="partner.name"
-                class="w-6 shadow-2"
-              />
-            </div>
-          </ng-template>
-        </p-carousel>
-      </div>
-    </div>
-  </div>
-</div>
+</div> -->
+
 <!-- <div class="container contact-container">
   <div class="row">
     <div

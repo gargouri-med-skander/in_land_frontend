@@ -1,13 +1,18 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { LoaderService } from 'src/app/shared/services/loader.service';
 import { SectionService } from 'src/app/shared/services/section-service.service';
+import { slideInOutAnimation } from '../slide-animation';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  animations: [slideInOutAnimation],
 })
 export class HomeComponent implements OnInit {
+  activeIndex = 0;
+  videoSrc = 'assets/video/InLandVideo.mp4';
+  isMuted = true;
   screenWidth!: number;
   leftPercentage = 14.5;
   partners: any[] = [];
@@ -16,13 +21,12 @@ export class HomeComponent implements OnInit {
     {
       image: 'assets/img/service1.jpg',
       title: 'Outbound Lead Generation',
-      description:
-        'Strategically engage potential clients with precision outreach.',
+      description: 'Engage potential clients with precision outreach.',
     },
     {
       image: 'assets/img/service2.jpg',
       title: 'Account-based Marketing',
-      description: 'Customized marketing for your most valuable accounts.',
+      description: 'Tailored marketing for top accounts.',
     },
     {
       image: 'assets/img/service3.jpg',
@@ -77,6 +81,15 @@ export class HomeComponent implements OnInit {
   clientRevenue = 0;
   salesPipeline = 0;
   languages = 0;
+  B2B = [
+    { image: 'assets/img/service1.jpg', title: 'aaa' },
+    { image: 'assets/img/service2.jpg', title: 'bbb' },
+    { image: 'assets/img/service3.jpg', title: 'QQQQ' },
+    { image: 'assets/img/service4.jpg', title: '23423' },
+  ];
+  B2Bindex = 0;
+  prevIndex = 0;
+  animationState = '';
   constructor(
     private loader: LoaderService,
     private sectionService: SectionService,
@@ -180,6 +193,19 @@ export class HomeComponent implements OnInit {
     this.calculateLeftPercentage();
   }
 
+  updateIndex(newIndex: number) {
+    if (newIndex >= 0 && newIndex < this.B2B.length) {
+      const direction = newIndex > this.B2Bindex ? 'next' : 'prev';
+      this.animationState = ''; // Reset animation state
+
+      // Delay setting the new state to force re-evaluation
+      setTimeout(() => {
+        this.animationState = direction;
+        this.B2Bindex = newIndex;
+      }, 0);
+    }
+  }
+
   private calculateLeftPercentage() {
     const firstTwoDigits = Math.floor(this.screenWidth / 100);
     const lastDigit = firstTwoDigits % 10;
@@ -252,7 +278,7 @@ export class HomeComponent implements OnInit {
       animatedElement.style.transform = `translateX(${translateXValue}px) rotate(${rotateValue}deg)`;
     }
   }
-
+  /* 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const containerStrategie = document.getElementById('strategie-container');
@@ -264,9 +290,6 @@ export class HomeComponent implements OnInit {
     const containerHome = document.getElementById('home-container');
     if (!containerHome) return;
     const scrollTop = window.scrollY;
-    /*     const strategieContainerTop = containerStrategie.offsetTop;
-    const partnersContainerTop = containerPartners.offsetTop;
-    const serviceContainerTop = containerService.offsetTop; */
     const homeContainerTop = containerHome.offsetTop;
 
     if (
@@ -277,19 +300,8 @@ export class HomeComponent implements OnInit {
     } else {
       this.sectionService.setCurrentSection('change');
     }
-    /*     if (
-      (scrollTop >= strategieContainerTop &&
-        scrollTop < strategieContainerTop + containerStrategie.scrollHeight) ||
-      (scrollTop >= partnersContainerTop &&
-        scrollTop < partnersContainerTop + containerPartners.scrollHeight) ||
-      (scrollTop >= serviceContainerTop &&
-        scrollTop < serviceContainerTop + containerService.scrollHeight)
-    ) {
-      this.sectionService.setCurrentSection('change');
-    } else {
-      this.sectionService.setCurrentSection('default');
-    } */
-  }
+
+  } */
   /* 
   ngAfterViewInit() {
     this.initEvents();
