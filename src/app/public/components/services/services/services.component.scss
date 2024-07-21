@@ -1,13 +1,169 @@
+$green: #194049;
+$white: #fff;
+$black: #000;
+$pink: #fe7773;
 .service-container {
-  height: calc(100vh - 170px);
-  z-index: 1;
+  height: calc(74vh);
   position: relative;
   width: 100%;
-  background: linear-gradient(
-    189.51deg,
-    rgb(209, 112, 112) 20.08%,
-    #ffff 104.58%
-  );
+  background: linear-gradient(128.51deg, #dbe0e2 4.08%, $green 85.58%);
   overflow: hidden;
-  padding-top: 16rem;
+  padding-top: 0rem;
+}
+.title {
+  color: $black;
+  font-size: 74px;
+  font-weight: 600;
+}
+.sub-title {
+  color: $green;
+  font-size: 34px;
+  font-weight: 400;
+}
+.service-slogon {
+  position: absolute;
+  bottom: 19vh;
+  left: 50%;
+  height: 12vh;
+  transform: translateX(-50%);
+  background: linear-gradient(30.51deg, #dbe0e2 14.08%, #e9dfdf 100.58%);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 14px 30px;
+}
+.service-content {
+  margin-top: 140px;
+}
+.support {
+  position: relative;
+}
+.first-block,
+.second-block,
+.third-block,
+.fourth-block,
+.fifth-block {
+  position: absolute;
+  padding: 15px;
+  color: $green;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.7)
+  );
+  width: auto;
+  font-size: 20px;
+  border-radius: 30px;
+  text-align: center;
+  transition: transform 2s ease-in-out;
+  font-weight: 500;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.25),
+    0 20px 40px rgba(0, 0, 0, 0.22),
+    0 30px 60px rgba(0, 0, 0, 0.18);
+}
+
+.first-block:hover,
+.second-block:hover,
+.third-block:hover,
+.fourth-block:hover,
+.fifth-block:hover {
+  background-color: rgb(0, 0, 0);
+  cursor: default;
+}
+
+.first-block {
+  position: absolute;
+  top: -7rem;
+  left: 50%;
+  transition: transform 2s ease-in-out;
+  animation: moveLeftAndRight 6s infinite;
+}
+
+.second-block {
+  position: absolute;
+  left: 22%;
+  top: -5rem;
+  transition: transform 2s ease-in-out;
+  animation: moveDiagonally2 6s infinite;
+}
+
+.third-block {
+  position: absolute;
+  top: 12rem;
+  left: 40%;
+  transition: transform 2s ease-in-out;
+  animation: moveRightAndLeft 6s infinite;
+}
+
+.fourth-block {
+  position: absolute;
+  top: 12rem;
+  left: 19%;
+  transition: transform 2s ease-in-out;
+  animation: moveDownAndUp 6s infinite;
+}
+
+.fifth-block {
+  position: absolute;
+  top: 12rem;
+  right: 20%;
+  transition: transform 2s ease-in-out;
+  animation: moveDiagonally 6s infinite;
+}
+
+@keyframes moveLeftAndRight {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes moveRightAndLeft {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes moveUpAndDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+@keyframes moveDownAndUp {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes moveDiagonally {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15px, 15px);
+  }
+}
+
+@keyframes moveDiagonally2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-15px, -20px);
+  }
 }
