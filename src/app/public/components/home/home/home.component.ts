@@ -90,6 +90,7 @@ export class HomeComponent implements OnInit {
   B2Bindex = 0;
   prevIndex = 0;
   animationState = '';
+  isHovered = false;
   constructor(
     private loader: LoaderService,
     private sectionService: SectionService,
@@ -185,10 +186,10 @@ export class HomeComponent implements OnInit {
         numScroll: 1,
       },
     ];
-    this.loader.setLoaderActive(false);
+    this.loader.setLoaderActive(true);
     setTimeout(() => {
       this.loader.setLoaderActive(false);
-    }, 1000);
+    }, 2000);
     this.onResize(null);
     this.calculateLeftPercentage();
   }
@@ -244,7 +245,7 @@ export class HomeComponent implements OnInit {
       event != null ? event.target.innerWidth : window.innerWidth;
   }
 
-  @HostListener('window:scroll', ['$event'])
+  /*  @HostListener('window:scroll', ['$event'])
   onScroll(): void {
     const windowHeight = window.innerHeight;
 
@@ -277,7 +278,7 @@ export class HomeComponent implements OnInit {
     if (rotateValue === 270) {
       animatedElement.style.transform = `translateX(${translateXValue}px) rotate(${rotateValue}deg)`;
     }
-  }
+  } */
   /* 
   @HostListener('window:scroll', [])
   onWindowScroll() {

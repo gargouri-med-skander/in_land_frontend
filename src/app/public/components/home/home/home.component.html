@@ -132,7 +132,18 @@
     </div>
   </div>
 </div>
-<div
+<div class="slogon container">
+  <div class="d-flex flex-column justify-content-center">
+    <div class="col-12">
+      <p class="challenge-text text-center">
+        At Inland, we leverage B2B lead generation expertise to solve diverse
+        business challenges. Our tailored solutions, from strategic planning to
+        execution, consistently deliver measurable growth.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- <div
   class="animation-container"
   (window:scroll)="onScroll()"
   style="overflow: hidden; height: auto"
@@ -243,7 +254,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="nav-container">
   <div class="container">
     <div
@@ -841,26 +852,52 @@
   </div>
 </div>
 <div id="contact-container" class="contact-container">
-  <div>
-    <div class="d-flex justify-content-center">
-      <div class="d-flex flex-column">
-        <div style="width: 100%">
-          <h1 class="contact-first-text">Have a business project in mind?</h1>
-        </div>
-        <div
-          style="width: 100%; padding-top: 30px"
-          class="d-flex justify-content-center"
+  <div
+    class="pink"
+    [class.hovered]="isHovered"
+    [class.reverse]="!isHovered"
+  ></div>
+
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+      <div
+        style="width: 100%"
+        pAnimateOnScroll
+        enterClass="contact-first-text"
+        leaveClass=""
+      >
+        <h1 class="contact-first-text" [class.hovered]="isHovered">
+          Have a business project in mind?
+        </h1>
+      </div>
+      <div
+        style="width: 100%; padding-top: 30px"
+        class="d-flex justify-content-center"
+        pAnimateOnScroll
+        enterClass="contact-second-text"
+        leaveClass=""
+      >
+        <h5
+          class="text-uppercase contact-second-text"
+          [class.hovered]="isHovered"
         >
-          <h5 class="text-uppercase contact-second-text">
-            Reach out to us now!
-          </h5>
-        </div>
-        <div
-          style="width: 100%; padding-top: 30px"
-          class="d-flex justify-content-center"
+          Reach out to us now!
+        </h5>
+      </div>
+      <div
+        style="width: 100%; padding-top: 30px"
+        class="d-flex justify-content-center"
+        pAnimateOnScroll
+        enterClass="contact-second-text"
+        leaveClass=""
+      >
+        <button
+          class="btn-contact"
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false"
         >
-          <button class="btn-contact">TALK TO US</button>
-        </div>
+          TALK TO US
+        </button>
       </div>
     </div>
   </div>
